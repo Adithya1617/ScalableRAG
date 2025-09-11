@@ -1,0 +1,27 @@
+[project]
+name = "scalablerag-main"
+version = "0.1.0"
+description = "Scalable RAG system with Pinecone and Google Gemini 2.5 Flash"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.116.1",
+    "google-generativeai>=0.8.3",
+    "ipykernel>=6.30.1",
+    "jinja2>=3.1.6",
+    "langchain>=0.3.27",
+    "langchain-cohere>=0.4.5",
+    "langchain-community>=0.3.29",
+    "langchain-core>=0.3.76",
+    "langchain-pinecone>=0.2.12",
+    "numpy>=2.3.3",
+    "pandas>=2.3.2",
+    "pinecone-client>=6.0.0",
+    "pypdf>=6.0.0",
+    "python-dotenv>=1.1.1",
+    "python-multipart>=0.0.20",
+    "rank-bm25>=0.2.2",
+    "tiktoken>=0.11.0",
+    "unstructured>=0.18.14",
+    "uvicorn>=0.35.0",
+]
