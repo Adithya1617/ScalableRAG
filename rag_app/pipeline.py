@@ -656,22 +656,64 @@ retriever_vector = None
 if index is not None:
     retriever_vector = PineconeLlamaRetriever(index=index, top_k=4, query_intelligence=query_intelligence)
 
-# Load BM25 retriever from pickle
-import os
-bm25_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "load_index", "bm25_index.pkl")
-with open(bm25_path, "rb") as f:
-    bm25_retriever = pickle.load(f)
+# Safe fallback retriever to avoid import-time crashes
+class SafeEmptyRetriever(BaseRetriever):
+    """A no-op retriever that returns no documents. Useful as a safe fallback."""
 
-# Combine BM25 and vector retrievers
-retrievers_list = [bm25_retriever] + ([retriever_vector] if retriever_vector else [])
-weights_list = [1.0] if not retriever_vector else [0.3, 0.7]
-hybridRetriever = EnsembleRetriever(
-    retrievers=retrievers_list,
-    weights=weights_list
-)
+    def __init__(self):
+        super().__init__()
+
+    def _get_relevant_documents(self, query: str, *, run_manager=None, **kwargs) -> List[Document]:
+        return []
+
+    async def _aget_relevant_documents(self, query: str, *, run_manager=None, **kwargs) -> List[Document]:
+        return []
+
+
+# Load BM25 retriever from pickle with robust error handling
+import os
+bm25_retriever = None
+try:
+    bm25_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "load_index", "bm25_index.pkl")
+    with open(bm25_path, "rb") as f:
+        bm25_retriever = pickle.load(f)
+except FileNotFoundError:
+    print(f"BM25 index not found at {bm25_path}. Continuing without BM25 retriever.")
+    bm25_retriever = SafeEmptyRetriever()
+except Exception as e:
+    print(f"Failed to load BM25 index from {bm25_path}: {e}. Falling back to empty retriever.")
+    bm25_retriever = SafeEmptyRetriever()
+
+# Combine BM25 and vector retrievers safely
+retrievers_list: List[BaseRetriever] = []
+if bm25_retriever is not None:
+    retrievers_list.append(bm25_retriever)
+if retriever_vector is not None:
+    retrievers_list.append(retriever_vector)
+
+if len(retrievers_list) == 0:
+    # Absolute fallback to avoid crashing the pipeline
+    hybridRetriever = SafeEmptyRetriever()
+else:
+    # Build weights matching the number of retrievers
+    if len(retrievers_list) == 1:
+        weights_list = [1.0]
+    else:
+        # Prefer vector higher if present alongside BM25
+        # Order in retrievers_list is [bm25?, vector?]
+        if len(retrievers_list) == 2 and retriever_vector is not None:
+            weights_list = [0.3, 0.7] if isinstance(retrievers_list[0], BaseRetriever) else [0.5, 0.5]
+        else:
+            # Default equal weights
+            weights_list = [1.0 / len(retrievers_list)] * len(retrievers_list)
+
+    hybridRetriever = EnsembleRetriever(
+        retrievers=retrievers_list,
+        weights=weights_list
+    )
 
 # Add Cohere reranker
-final_retriever = hybridRetriever
+final_retriever: BaseRetriever = hybridRetriever if isinstance(hybridRetriever, BaseRetriever) else SafeEmptyRetriever()
 cohere_key = os.getenv("COHERE_API_KEY")
 if cohere_key:
     try:
