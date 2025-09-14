@@ -6,16 +6,21 @@ services:
     plan: free
     buildCommand: |
       pip install -U pip
-      pip install -r requirements.txt
+      pip install -r requirements-render.txt
     startCommand: |
       cd rag_app && uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
         value: 3.12
-      # Optional: API keys (set values in Render dashboard Environment)
-      # Render Blueprint does not support 'sync: false' entries.
-      # Add these in the Render UI after creating the service:
+      - key: UPLOAD_DIR
+        value: /opt/uploads
+      # Set the following in the Render Dashboard after creation:
       # - GEMINI_API_KEY
       # - COHERE_API_KEY
       # - PINECONE_API_KEY
-      # - PINECONE_INDEX_NAME
+      # - PINECONE_INDEX_NAME (default: quickstart)
+    disks:
+      - name: uploads
+        mountPath: /opt/uploads
+        sizeGB: 1

@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+python-multipart
+requests
+numpy
+pypdf
+rank-bm25
+langchain
+langchain-core
+langchain-community
+langchain-cohere
+langchain-pinecone
+google-generativeai
+pinecone
