@@ -13,8 +13,8 @@ This is a **completely independent** React (Next.js 14 + TypeScript) frontend th
 
 - 📁 Upload and index documents (calls `/upload-and-index`)
 - 💬 Chat with intelligent query (calls `/query/intelligent`)
-- 📊 Optional real-time metrics per query (calls `/metrics/real-time/{query}`)
-- 📋 List and run evaluations
+- � List and run evaluations
+- 📈 Advanced metrics (optional): fetched in the background after a chat reply and shown inline under the message if available.
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ The frontend calls these backend endpoints:
 - `GET /health` - Health check
 - `POST /upload-and-index` - Upload files
 - `POST /query/intelligent` - Chat with AI
-- `GET /metrics/real-time/{query}` - Real-time metrics
+- `GET /metrics/real-time/{query}` - Real-time metrics (used by chat to show advanced metrics inline)
 - `GET /evaluations` - List evaluations
 - `POST /run-evaluation` - Run evaluation
 - `GET /evaluation-status/{id}` - Check evaluation status
