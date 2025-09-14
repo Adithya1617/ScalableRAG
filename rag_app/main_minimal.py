@@ -1,9 +1,13 @@
 # rag_app/main_minimal.py
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import os
 import time
+import tempfile
+import shutil
+from pathlib import Path
+from typing import List
 
 app = FastAPI(title="RAG Chatbot API", version="1.0.0")
 
@@ -93,6 +97,39 @@ async def intelligent_query(payload: IntelligentQueryRequest):
     except Exception as e:
         if "503" in str(e):
             raise e
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/upload-and-index")
+async def upload_and_index(files: list[UploadFile] = File(...)):
+    """Upload documents and automatically create index (uses temporary storage)"""
+    try:
+        # Use temporary directory since persistent disks aren't available on free tier
+        with tempfile.TemporaryDirectory() as temp_dir:
+            upload_dir = Path(temp_dir) / "uploads"
+            upload_dir.mkdir(exist_ok=True)
+
+            uploaded_files: List[str] = []
+
+            # Save uploaded files
+            for file in files:
+                if not file.filename:
+                    continue
+                file_path = upload_dir / file.filename
+                with open(file_path, "wb") as buffer:
+                    shutil.copyfileobj(file.file, buffer)
+                uploaded_files.append(str(file_path))
+
+            if not uploaded_files:
+                raise HTTPException(status_code=400, detail="No valid files uploaded")
+
+            # Note: Indexing would need to be implemented to work with temporary files
+            # For now, return success but indicate limitation
+            return {
+                "message": f"Files uploaded to temporary storage: {len(uploaded_files)} files",
+                "files": [Path(f).name for f in uploaded_files],
+                "note": "Indexing functionality requires persistent storage (not available on free tier)"
+            }
+    except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/init")

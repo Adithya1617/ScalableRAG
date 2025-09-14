@@ -14,14 +14,8 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.12
-      - key: UPLOAD_DIR
-        value: /opt/uploads
       # Set the following in the Render Dashboard after creation:
       # - GEMINI_API_KEY
       # - COHERE_API_KEY
       # - PINECONE_API_KEY
       # - PINECONE_INDEX_NAME (default: quickstart)
-    disks:
-      - name: uploads
-        mountPath: /opt/uploads
-        sizeGB: 1
