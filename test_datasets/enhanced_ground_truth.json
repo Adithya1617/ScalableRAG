@@ -1,0 +1,170 @@
+[
+  {
+    "query": "What is the probation period for new employees?",
+    "expected_answer": "The probation period for new employees is typically 6 months, during which performance is evaluated and employment may be confirmed or terminated.",
+    "complexity": "simple",
+    "evaluation_dimensions": [
+      "factual_accuracy",
+      "completeness"
+    ],
+    "relevant_document_sections": [
+      "Employment Terms",
+      "Probation Policy"
+    ],
+    "key_facts": [
+      "6 months duration",
+      "performance evaluation",
+      "confirmation process"
+    ],
+    "potential_pitfalls": [
+      "Confusing with different roles",
+      "Missing exceptions"
+    ],
+    "human_validated": true,
+    "test_type": "ground_truth"
+  },
+  {
+    "query": "What are the steps to request annual leave and who approves it?",
+    "expected_answer": "To request annual leave, employees must submit a leave application form at least 15 days in advance to their direct supervisor. The supervisor reviews and approves based on operational requirements and team coverage.",
+    "complexity": "moderate",
+    "evaluation_dimensions": [
+      "factual_accuracy",
+      "completeness",
+      "coherence"
+    ],
+    "relevant_document_sections": [
+      "Leave Policy",
+      "Approval Process"
+    ],
+    "key_facts": [
+      "15 days advance notice",
+      "application form required",
+      "supervisor approval",
+      "operational considerations"
+    ],
+    "potential_pitfalls": [
+      "Missing advance notice requirement",
+      "Unclear approval hierarchy"
+    ],
+    "human_validated": true,
+    "test_type": "ground_truth"
+  },
+  {
+    "query": "Compare the benefits available for permanent employees versus contract employees",
+    "expected_answer": "Permanent employees receive full benefits including health insurance, retirement contributions, annual leave, and professional development allowances. Contract employees receive pro-rated health insurance and basic leave entitlements but are not eligible for retirement contributions or professional development funding.",
+    "complexity": "complex",
+    "evaluation_dimensions": [
+      "factual_accuracy",
+      "completeness",
+      "relevance",
+      "coherence"
+    ],
+    "relevant_document_sections": [
+      "Employee Benefits",
+      "Contract Terms",
+      "Compensation Structure"
+    ],
+    "key_facts": [
+      "permanent vs contract distinction",
+      "health insurance differences",
+      "retirement eligibility",
+      "professional development access"
+    ],
+    "potential_pitfalls": [
+      "Missing benefit categories",
+      "Incorrect eligibility rules",
+      "Incomplete comparison"
+    ],
+    "human_validated": true,
+    "test_type": "ground_truth"
+  },
+  {
+    "query": "Summarize the main policies covered in this document",
+    "expected_answer": "This document covers employment policies including hiring procedures, compensation structure, benefits administration, leave policies, performance management, disciplinary procedures, and termination processes.",
+    "complexity": "moderate",
+    "evaluation_dimensions": [
+      "completeness",
+      "coherence",
+      "relevance"
+    ],
+    "relevant_document_sections": [
+      "Table of Contents",
+      "Policy Overview"
+    ],
+    "key_facts": [
+      "comprehensive policy coverage",
+      "organizational structure",
+      "employee lifecycle"
+    ],
+    "potential_pitfalls": [
+      "Missing key policy areas",
+      "Too much detail",
+      "Lack of structure"
+    ],
+    "human_validated": true,
+    "test_type": "ground_truth"
+  },
+  {
+    "query": "What information is not available in these documents?",
+    "expected_answer": "I can only provide information based on the available HR policy documents. For questions about specific salary ranges, individual employee records, or policies not covered in these documents, you would need to contact HR directly.",
+    "complexity": "simple",
+    "evaluation_dimensions": [
+      "relevance",
+      "coherence"
+    ],
+    "relevant_document_sections": [
+      "Document Scope"
+    ],
+    "key_facts": [
+      "knowledge limitations",
+      "appropriate referrals",
+      "document boundaries"
+    ],
+    "potential_pitfalls": [
+      "Hallucinating information",
+      "Overconfident responses"
+    ],
+    "human_validated": true,
+    "test_type": "ground_truth"
+  },
+  {
+    "query": "What is the meaning of life?",
+    "expected_answer": "I cannot answer this question as it is outside the scope of the HR policy documents available to me. I can help with questions about employment policies, benefits, leave procedures, and other HR-related topics.",
+    "complexity": "simple",
+    "evaluation_dimensions": [
+      "relevance",
+      "coherence"
+    ],
+    "relevant_document_sections": [],
+    "key_facts": [
+      "scope limitation",
+      "appropriate boundaries"
+    ],
+    "potential_pitfalls": [
+      "Attempting to answer",
+      "Providing irrelevant information"
+    ],
+    "human_validated": true,
+    "test_type": "ground_truth"
+  },
+  {
+    "query": "",
+    "expected_answer": "Please provide a question about our HR policies and I'll be happy to help you find the relevant information.",
+    "complexity": "simple",
+    "evaluation_dimensions": [
+      "coherence",
+      "relevance"
+    ],
+    "relevant_document_sections": [],
+    "key_facts": [
+      "input validation",
+      "helpful guidance"
+    ],
+    "potential_pitfalls": [
+      "Error responses",
+      "Unhelpful messages"
+    ],
+    "human_validated": true,
+    "test_type": "ground_truth"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "query": "What information is contained in the document about main topic?",
+    "expected_answer": "Sr. Topic Marks\n1 General English (Written and Spoken \u2013 equivalent to SCOPE \nsyllabus defined by Government of Gujarat) \u2013 Lower English\n30\n3 Computer awareness (MS-Office-Word, Excel, Power Point, Int...",
+    "relevant_doc_ids": [
+      "chunk-286"
+    ],
+    "question_type": "factual",
+    "document_content": "Sr. Topic Marks\n1 General English (Written and Spoken \u2013 equivalent to SCOPE \nsyllabus defined by Government of Gujarat) \u2013 Lower English\n30\n3 Computer awareness (MS-Office-Word, Excel, Power Point, Internet, \nE-Mail) equivalent to CCC of Govt.of Gujarat \n25\n4 Numerical ability (similar to Bank\u2019s clerk examination) 15\n5 Reasoning ability (similar to Bank\u2019s clerk examination) 15\n6 General awareness (similar to Bank\u2019s clerk examination) 15\nTotal 100"
+  },
+  {
+    "query": "What information is contained in the document about key information?",
+    "expected_answer": "33\nIIMA HR Policy Manual 2023\nNationality: Nationality of Spouse:\nDo you hold Dual Citizenship ? If so, mention :                                   (attach proof) \nPassport No (if any) :\nAadhar Card N...",
+    "relevant_doc_ids": [
+      "chunk-128"
+    ],
+    "question_type": "factual",
+    "document_content": "33\nIIMA HR Policy Manual 2023\nNationality: Nationality of Spouse:\nDo you hold Dual Citizenship ? If so, mention :                                   (attach proof) \nPassport No (if any) :\nAadhar Card No : PAN Card :\nMother tongue :\nKnowledge of Indian and foreign languages (fluently, reasonably, with difficulty)\nLanguage Speak Read Write\nDid you suffer from any major illness/accident/surgery? If so, mention the nature of illness(es) and \nthe dates of your disability.\nMention whether you suffer from any physical defect, disability of a permanent nature, \nor chronic illness/accident.\nII. EDUCATION (Matriculation onwards) [Attach Certificates/marksheets]\nFrom \n(Year)\nTo\n(Year)\nBoard/ \nUniversity/\nInstitution\nDegree/ \nQualification\nClass/\nGrade\nMajor Subject/\nSpecialization Remarks"
+  },
+  {
+    "query": "What information is contained in the document about important details?",
+    "expected_answer": "Date of Birth :      Age : Height : Weight :\nIdentification marks:\n1)\n2)\nPlace of Birth : State Gender :\nReligion*: Caste* : Sub Caste* : Blood Group* :\nWhether Minority* :\nPhysically Challenged (Orth...",
+    "relevant_doc_ids": [
+      "chunk-127"
+    ],
+    "question_type": "factual",
+    "document_content": "Date of Birth :      Age : Height : Weight :\nIdentification marks:\n1)\n2)\nPlace of Birth : State Gender :\nReligion*: Caste* : Sub Caste* : Blood Group* :\nWhether Minority* :\nPhysically Challenged (Orthopedically/ Visually/Hearing Impaired), \u201c if yes then %thereof\u201d :\n*This data is requested as per Government of India norms.\nDo you belong to Scheduled Caste/Tribe/OBC/PH/Gen ?  Yes/No\n(If yes, please attach certificate to that effect.)"
+  },
+  {
+    "query": "What information is contained in the document about overview?",
+    "expected_answer": "Process & Procedure: ........................................................................................................................163\nThe Office ...............................................",
+    "relevant_doc_ids": [
+      "chunk-34"
+    ],
+    "question_type": "factual",
+    "document_content": "Process & Procedure: ........................................................................................................................163\nThe Office ...............................................................................................................................................164\nReporting ................................................................................................................................................164\nSummary ................................................................................................................................................ 164"
+  },
+  {
+    "query": "What information is contained in the document about summary?",
+    "expected_answer": "Process & Procedure: ........................................................................................................................163\nThe Office ...............................................",
+    "relevant_doc_ids": [
+      "chunk-34"
+    ],
+    "question_type": "factual",
+    "document_content": "Process & Procedure: ........................................................................................................................163\nThe Office ...............................................................................................................................................164\nReporting ................................................................................................................................................164\nSummary ................................................................................................................................................ 164"
+  }
+]

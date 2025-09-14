@@ -1,0 +1,263 @@
+[
+  {
+    "query": "What specific document is requested to be attached with the application for a loan/final withdrawal from P.F. for housing?",
+    "expected_answer": "Documentary proof of house building.",
+    "question_type": "factual",
+    "keywords": [
+      "documentary",
+      "proof",
+      "house building"
+    ],
+    "relevant_doc_ids": [
+      "doc_0"
+    ],
+    "document_content": "Final withdrawal already availed for housing\n12. E\u00de\u00f2{\u00c9\u00aa\u00c9\u00c9 \u00a6\u00c9\u00b4\u00c9x\u00c9\u00cax\u00c9\u00a8\u00c9\u00c9\u00c7h\u00c9 E\u00f2\u00c9 \u00ca\u00b1\u00c9\u00caJ\u00c9i\u00c9 |\u00c9\u00a8\u00c9\u00c9h\u00c9 \u00ba\u00c9\u00c6\u00b1\u00c9Mx\u00c9 E\u00f2\u00ae\u00e5\u00fa :\nPlease attach documentary proof of house building\n\u00bd\u00fe\u00bai\u00c9\u00c9I\u00c9\u00ae\u00fa / Signature\n\u00a6\u00c9\u00ca\u00b4\u00c9\u00b9\u00aa\u00c9 \u00cax\u00c9\u00cav\u00c9 \u00ba\u00c9\u00e4 \u00a8\u00c9E\u00f2\u00c9x\u00c9 \u00a4\u00c9x\u00c9\u00c9x\u00c9\u00e4 E\u00e4\u00f2 \u00ca\u00b1\u00c9B @\u00f1h\u00c9 / +\u00c6\u00cai\u00c9\u00a8\u00c9 +\u00c9\u00bd\u00fe\u00ae\u00fah\u00c9 E\u00e4\u00f2\n+\u00c9\u00b4\u00c9\u00e4n\u00f9x\u00c9 E\u00e4\u00f2 \u00ba\u00c9\u00c9l\u00c9 \u00b4\u00c9\u00c9\u00c6\u00caU\u00f4i\u00c9 \u00ba\u00c9\u00daS\u00c9x\u00c9\u00c9\nInformation required with application for Loan/Final withdrawal from P.F. for housing\nE\u00f2\u00a8\u00c9\u00c7S\u00c9\u00c9\u00ae\u00fa\u00d2 E\u00da\u00f2]\u00f5 \u00ba\u00c9\u00c6J\u00aa\u00c9\u00c9 /\nEmployee Code No.\n\u00a6\u00c9\u00ca\u00b4\u00c9\u00b9\u00aa\u00c9\u00cax\u00c9\u00cav\u00c9 \u00b1\u00c9\u00e4J\u00c9\u00c9 \u00ba\u00c9\u00c6J\u00aa\u00c9\u00c9\nP.F. A/c No.\nIndIndIndIndInd ian Instian Instian Instian Instian Inst it itit ititut utut utute of Managemente of Managemente of Managemente of Managemente of Management\nVastrapur , Ahmed abad - 380 015.\n\u00a6\u00c9\u00c9\u00ae\u00fai\u00c9\u00d2\u00aa\u00c9 |\u00c9\u00a4\u00c9\u00c6v\u00c9 \u00ba\u00c9\u00c6\u00bal\u00c9\u00c9x\u00c9\n\u00b4\u00c9\u00baj\u00c9\u00c9{\u00c9\u00d6\u00ae\u00fa, +\u00bd\u00fe\u00a8\u00c9n\u00f9\u00c9\u00a4\u00c9\u00c9n\u00f9 - 380 015"
+  },
+  {
+    "query": "The document mentions \"Final withdrawal already availed for housing.\" What implication does this statement have for an individual considering another application for a loan or final withdrawal from their P.F. for housing?",
+    "expected_answer": "This statement implies that there might be a limit to how many times a final withdrawal for housing can be availed, or it serves as a reminder to disclose previous withdrawals, potentially affecting eligibility for a *new* loan or final withdrawal.",
+    "question_type": "analytical",
+    "keywords": [
+      "limit",
+      "eligibility",
+      "previous withdrawals",
+      "disclosure",
+      "new application"
+    ],
+    "relevant_doc_ids": [
+      "doc_0"
+    ],
+    "document_content": "Final withdrawal already availed for housing\n12. E\u00de\u00f2{\u00c9\u00aa\u00c9\u00c9 \u00a6\u00c9\u00b4\u00c9x\u00c9\u00cax\u00c9\u00a8\u00c9\u00c9\u00c7h\u00c9 E\u00f2\u00c9 \u00ca\u00b1\u00c9\u00caJ\u00c9i\u00c9 |\u00c9\u00a8\u00c9\u00c9h\u00c9 \u00ba\u00c9\u00c6\u00b1\u00c9Mx\u00c9 E\u00f2\u00ae\u00e5\u00fa :\nPlease attach documentary proof of house building\n\u00bd\u00fe\u00bai\u00c9\u00c9I\u00c9\u00ae\u00fa / Signature\n\u00a6\u00c9\u00ca\u00b4\u00c9\u00b9\u00aa\u00c9 \u00cax\u00c9\u00cav\u00c9 \u00ba\u00c9\u00e4 \u00a8\u00c9E\u00f2\u00c9x\u00c9 \u00a4\u00c9x\u00c9\u00c9x\u00c9\u00e4 E\u00e4\u00f2 \u00ca\u00b1\u00c9B @\u00f1h\u00c9 / +\u00c6\u00cai\u00c9\u00a8\u00c9 +\u00c9\u00bd\u00fe\u00ae\u00fah\u00c9 E\u00e4\u00f2\n+\u00c9\u00b4\u00c9\u00e4n\u00f9x\u00c9 E\u00e4\u00f2 \u00ba\u00c9\u00c9l\u00c9 \u00b4\u00c9\u00c9\u00c6\u00caU\u00f4i\u00c9 \u00ba\u00c9\u00daS\u00c9x\u00c9\u00c9\nInformation required with application for Loan/Final withdrawal from P.F. for housing\nE\u00f2\u00a8\u00c9\u00c7S\u00c9\u00c9\u00ae\u00fa\u00d2 E\u00da\u00f2]\u00f5 \u00ba\u00c9\u00c6J\u00aa\u00c9\u00c9 /\nEmployee Code No.\n\u00a6\u00c9\u00ca\u00b4\u00c9\u00b9\u00aa\u00c9\u00cax\u00c9\u00cav\u00c9 \u00b1\u00c9\u00e4J\u00c9\u00c9 \u00ba\u00c9\u00c6J\u00aa\u00c9\u00c9\nP.F. A/c No.\nIndIndIndIndInd ian Instian Instian Instian Instian Inst it itit ititut utut utute of Managemente of Managemente of Managemente of Managemente of Management\nVastrapur , Ahmed abad - 380 015.\n\u00a6\u00c9\u00c9\u00ae\u00fai\u00c9\u00d2\u00aa\u00c9 |\u00c9\u00a4\u00c9\u00c6v\u00c9 \u00ba\u00c9\u00c6\u00bal\u00c9\u00c9x\u00c9\n\u00b4\u00c9\u00baj\u00c9\u00c9{\u00c9\u00d6\u00ae\u00fa, +\u00bd\u00fe\u00a8\u00c9n\u00f9\u00c9\u00a4\u00c9\u00c9n\u00f9 - 380 015"
+  },
+  {
+    "query": "Provide a brief overview of the primary purpose and context of this document.",
+    "expected_answer": "This document outlines the information and requirements for applying for a loan or final withdrawal from a Provident Fund (P.F.) for housing purposes, likely for employees of the Indian Institute of Management, Vastrapur, Ahmedabad. It includes instructions to attach proof of house building and lists necessary account details.",
+    "question_type": "summary",
+    "keywords": [
+      "application",
+      "loan",
+      "final withdrawal",
+      "Provident Fund",
+      "housing",
+      "requirements",
+      "Indian Institute of Management"
+    ],
+    "relevant_doc_ids": [
+      "doc_0"
+    ],
+    "document_content": "Final withdrawal already availed for housing\n12. E\u00de\u00f2{\u00c9\u00aa\u00c9\u00c9 \u00a6\u00c9\u00b4\u00c9x\u00c9\u00cax\u00c9\u00a8\u00c9\u00c9\u00c7h\u00c9 E\u00f2\u00c9 \u00ca\u00b1\u00c9\u00caJ\u00c9i\u00c9 |\u00c9\u00a8\u00c9\u00c9h\u00c9 \u00ba\u00c9\u00c6\u00b1\u00c9Mx\u00c9 E\u00f2\u00ae\u00e5\u00fa :\nPlease attach documentary proof of house building\n\u00bd\u00fe\u00bai\u00c9\u00c9I\u00c9\u00ae\u00fa / Signature\n\u00a6\u00c9\u00ca\u00b4\u00c9\u00b9\u00aa\u00c9 \u00cax\u00c9\u00cav\u00c9 \u00ba\u00c9\u00e4 \u00a8\u00c9E\u00f2\u00c9x\u00c9 \u00a4\u00c9x\u00c9\u00c9x\u00c9\u00e4 E\u00e4\u00f2 \u00ca\u00b1\u00c9B @\u00f1h\u00c9 / +\u00c6\u00cai\u00c9\u00a8\u00c9 +\u00c9\u00bd\u00fe\u00ae\u00fah\u00c9 E\u00e4\u00f2\n+\u00c9\u00b4\u00c9\u00e4n\u00f9x\u00c9 E\u00e4\u00f2 \u00ba\u00c9\u00c9l\u00c9 \u00b4\u00c9\u00c9\u00c6\u00caU\u00f4i\u00c9 \u00ba\u00c9\u00daS\u00c9x\u00c9\u00c9\nInformation required with application for Loan/Final withdrawal from P.F. for housing\nE\u00f2\u00a8\u00c9\u00c7S\u00c9\u00c9\u00ae\u00fa\u00d2 E\u00da\u00f2]\u00f5 \u00ba\u00c9\u00c6J\u00aa\u00c9\u00c9 /\nEmployee Code No.\n\u00a6\u00c9\u00ca\u00b4\u00c9\u00b9\u00aa\u00c9\u00cax\u00c9\u00cav\u00c9 \u00b1\u00c9\u00e4J\u00c9\u00c9 \u00ba\u00c9\u00c6J\u00aa\u00c9\u00c9\nP.F. A/c No.\nIndIndIndIndInd ian Instian Instian Instian Instian Inst it itit ititut utut utute of Managemente of Managemente of Managemente of Managemente of Management\nVastrapur , Ahmed abad - 380 015.\n\u00a6\u00c9\u00c9\u00ae\u00fai\u00c9\u00d2\u00aa\u00c9 |\u00c9\u00a4\u00c9\u00c6v\u00c9 \u00ba\u00c9\u00c6\u00bal\u00c9\u00c9x\u00c9\n\u00b4\u00c9\u00baj\u00c9\u00c9{\u00c9\u00d6\u00ae\u00fa, +\u00bd\u00fe\u00a8\u00c9n\u00f9\u00c9\u00a4\u00c9\u00c9n\u00f9 - 380 015"
+  },
+  {
+    "query": "What three specific 'copies' of identification or qualification documents are listed without the 'if any' condition?",
+    "expected_answer": "Copy of Passport, Copy of PAN Card, Copy of Aadhar Card, and Copies of Educational & Technical / Computer Qualifications.",
+    "question_type": "factual",
+    "keywords": [
+      "Passport",
+      "PAN Card",
+      "Aadhar Card",
+      "Educational Qualifications",
+      "Technical Qualifications",
+      "Computer Qualifications"
+    ],
+    "relevant_doc_ids": [
+      "doc_1"
+    ],
+    "document_content": "2) Rent Agreement if any\n3) Caste Certificate if any\n4) Certificate of Physical Defect, if any\n5) Proof of Dual Citizenship, if any\n6) Copy of Passport\n7) Copy of PAN Card\n8) Copy of Aadhar Card\n9) Copies of Educational  & Technical / Computer Qualifications"
+  },
+  {
+    "query": "Based on the phrasing, what is the key difference in the requirement for documents listed from items 2 to 5 compared to those from items 6 to 9?",
+    "expected_answer": "Documents from items 2 to 5 (Rent Agreement, Caste Certificate, Certificate of Physical Defect, Proof of Dual Citizenship) are conditional, meaning they are only required 'if any' apply to the individual. In contrast, documents from items 6 to 9 (Copy of Passport, PAN Card, Aadhar Card, and Educational/Technical/Computer Qualifications) appear to be generally mandatory 'copies' as they lack the 'if any' qualifier.",
+    "question_type": "analytical",
+    "keywords": [
+      "conditional",
+      "if any",
+      "mandatory",
+      "required",
+      "difference",
+      "Rent Agreement",
+      "Caste Certificate",
+      "Physical Defect",
+      "Dual Citizenship",
+      "Passport",
+      "PAN Card",
+      "Aadhar Card",
+      "Qualifications"
+    ],
+    "relevant_doc_ids": [
+      "doc_1"
+    ],
+    "document_content": "2) Rent Agreement if any\n3) Caste Certificate if any\n4) Certificate of Physical Defect, if any\n5) Proof of Dual Citizenship, if any\n6) Copy of Passport\n7) Copy of PAN Card\n8) Copy of Aadhar Card\n9) Copies of Educational  & Technical / Computer Qualifications"
+  },
+  {
+    "query": "Provide a brief summary of the type of information this document content represents.",
+    "expected_answer": "This document content is a list of various documents and certificates, some of which are conditional (required only if applicable) and others appear to be generally mandatory 'copies' (like identification and educational qualifications), likely for an application, registration, or verification process.",
+    "question_type": "summary",
+    "keywords": [
+      "documents",
+      "certificates",
+      "list",
+      "conditional",
+      "mandatory",
+      "application",
+      "registration",
+      "verification"
+    ],
+    "relevant_doc_ids": [
+      "doc_1"
+    ],
+    "document_content": "2) Rent Agreement if any\n3) Caste Certificate if any\n4) Certificate of Physical Defect, if any\n5) Proof of Dual Citizenship, if any\n6) Copy of Passport\n7) Copy of PAN Card\n8) Copy of Aadhar Card\n9) Copies of Educational  & Technical / Computer Qualifications"
+  },
+  {
+    "query": "What types of files are listed under items 15 and 16?",
+    "expected_answer": "Files on various labour contracts and files on various labour registration.",
+    "question_type": "factual",
+    "keywords": [
+      "labour contracts",
+      "labour registration",
+      "files"
+    ],
+    "relevant_doc_ids": [
+      "doc_2"
+    ],
+    "document_content": "11 Documents about RTI related matters\n12 Files related to orders of pay commissions and pay revision\n13 Files of house allotment \n14 Agreements\n15 Files on various labour contracts\n16 Files on various labour registration\n17 Chief Vigilance Officer files\n18 Budgeting & related files\n19 Minutes of Faculty Recruitment Committee\n20 All Policy related files\n21 Minority Community file\nCHAPTER 23\nRETENTION OF DOCUMENTS"
+  },
+  {
+    "query": "Considering the chapter title 'RETENTION OF DOCUMENTS,' what is the likely significance or purpose of presenting this specific list of document types?",
+    "expected_answer": "The list likely details the specific categories of documents that are subject to retention policies, indicating which files need to be kept and managed according to the rules outlined in Chapter 23.",
+    "question_type": "analytical",
+    "keywords": [
+      "retention policies",
+      "document management",
+      "specific categories",
+      "kept",
+      "managed",
+      "purpose"
+    ],
+    "relevant_doc_ids": [
+      "doc_2"
+    ],
+    "document_content": "11 Documents about RTI related matters\n12 Files related to orders of pay commissions and pay revision\n13 Files of house allotment \n14 Agreements\n15 Files on various labour contracts\n16 Files on various labour registration\n17 Chief Vigilance Officer files\n18 Budgeting & related files\n19 Minutes of Faculty Recruitment Committee\n20 All Policy related files\n21 Minority Community file\nCHAPTER 23\nRETENTION OF DOCUMENTS"
+  },
+  {
+    "query": "Provide a brief overview of the content presented in the document.",
+    "expected_answer": "The document provides a list of various types of files and documents, ranging from RTI matters, pay commissions, house allotments, agreements, labour contracts, budgeting, and policy files, all presented under the context of 'RETENTION OF DOCUMENTS' (Chapter 23).",
+    "question_type": "summary",
+    "keywords": [
+      "various document types",
+      "RTI",
+      "pay commissions",
+      "labour contracts",
+      "budgeting",
+      "policy files",
+      "retention of documents",
+      "overview"
+    ],
+    "relevant_doc_ids": [
+      "doc_2"
+    ],
+    "document_content": "11 Documents about RTI related matters\n12 Files related to orders of pay commissions and pay revision\n13 Files of house allotment \n14 Agreements\n15 Files on various labour contracts\n16 Files on various labour registration\n17 Chief Vigilance Officer files\n18 Budgeting & related files\n19 Minutes of Faculty Recruitment Committee\n20 All Policy related files\n21 Minority Community file\nCHAPTER 23\nRETENTION OF DOCUMENTS"
+  },
+  {
+    "query": "Name three specific documents required to be attached according to the provided content.",
+    "expected_answer": "Three required documents are Copy of Passport, Copy of PAN Card, and Copy of Aadhar Card.",
+    "question_type": "factual",
+    "keywords": [
+      "Passport",
+      "PAN Card",
+      "Aadhar Card"
+    ],
+    "relevant_doc_ids": [
+      "doc_3"
+    ],
+    "document_content": "belief.  I agree to abide by the decision of the Institute\u2019s authorities on all matters regarding the same.\nPlace :        Sign :\nDate :        Name :    \n---------------------------------------------------------------------------------------------------------------------------------------\nFOR OFFICE USE ONLY\nName of the employee :\nEmployee Code : Appointed as :\nGroup :       A        B             C          D Department : \nDate of Joining : Appointment upto :\nPay Level:\nAssistant General Manager- Accounts\nThis is for your kind information and necessary action/record.\n___________                     ___________________\nManager - HR                            Associate Vice President-HR\nFollowing Documents to be attached\n1) Name change certificate if any\n2) Rent Agreement if any\n3) Caste Certificate if any\n4) Certificate of Physical Defect, if any\n5) Proof of Dual Citizenship, if any\n6) Copy of Passport\n7) Copy of PAN Card\n8) Copy of Aadhar Card"
+  },
+  {
+    "query": "Based on the structure and content, what is the overall purpose of this document in an organizational context?",
+    "expected_answer": "This document appears to be part of an employee's onboarding or appointment process, serving as a declaration of agreement, an internal HR record for employment details, and a checklist for necessary personal documents.",
+    "question_type": "analytical",
+    "keywords": [
+      "employee",
+      "onboarding",
+      "appointment",
+      "HR",
+      "agreement",
+      "documents"
+    ],
+    "relevant_doc_ids": [
+      "doc_3"
+    ],
+    "document_content": "belief.  I agree to abide by the decision of the Institute\u2019s authorities on all matters regarding the same.\nPlace :        Sign :\nDate :        Name :    \n---------------------------------------------------------------------------------------------------------------------------------------\nFOR OFFICE USE ONLY\nName of the employee :\nEmployee Code : Appointed as :\nGroup :       A        B             C          D Department : \nDate of Joining : Appointment upto :\nPay Level:\nAssistant General Manager- Accounts\nThis is for your kind information and necessary action/record.\n___________                     ___________________\nManager - HR                            Associate Vice President-HR\nFollowing Documents to be attached\n1) Name change certificate if any\n2) Rent Agreement if any\n3) Caste Certificate if any\n4) Certificate of Physical Defect, if any\n5) Proof of Dual Citizenship, if any\n6) Copy of Passport\n7) Copy of PAN Card\n8) Copy of Aadhar Card"
+  },
+  {
+    "query": "Summarize the types of information recorded in the 'FOR OFFICE USE ONLY' section.",
+    "expected_answer": "The 'FOR OFFICE USE ONLY' section records key employment details such as the employee's name and code, their appointed role (e.g., Assistant General Manager- Accounts), their assigned group and department, date of joining, appointment duration, and pay level.",
+    "question_type": "summary",
+    "keywords": [
+      "employee name",
+      "employee code",
+      "appointed role",
+      "department",
+      "date of joining",
+      "pay level"
+    ],
+    "relevant_doc_ids": [
+      "doc_3"
+    ],
+    "document_content": "belief.  I agree to abide by the decision of the Institute\u2019s authorities on all matters regarding the same.\nPlace :        Sign :\nDate :        Name :    \n---------------------------------------------------------------------------------------------------------------------------------------\nFOR OFFICE USE ONLY\nName of the employee :\nEmployee Code : Appointed as :\nGroup :       A        B             C          D Department : \nDate of Joining : Appointment upto :\nPay Level:\nAssistant General Manager- Accounts\nThis is for your kind information and necessary action/record.\n___________                     ___________________\nManager - HR                            Associate Vice President-HR\nFollowing Documents to be attached\n1) Name change certificate if any\n2) Rent Agreement if any\n3) Caste Certificate if any\n4) Certificate of Physical Defect, if any\n5) Proof of Dual Citizenship, if any\n6) Copy of Passport\n7) Copy of PAN Card\n8) Copy of Aadhar Card"
+  },
+  {
+    "query": "What is the name of the organization associated with the Chief Administrative Officer?",
+    "expected_answer": "Indian Institute of Management Ahmedabad",
+    "question_type": "factual",
+    "keywords": [
+      "Indian Institute of Management Ahmedabad"
+    ],
+    "relevant_doc_ids": [
+      "doc_4"
+    ],
+    "document_content": "of the Licensed Premises or any part thereof. \nSchedule of the premises above referred to:\nHouse Type  ,No. ___  bearing Municipal Census No: __________________________Vastrapur Taluka City \nSurvey No.                    -            of ________ sq.mtr.\n(Name of Employee)\nSigned and delivered by th employee in the presence of  \n1. _____________________________________________________________ \n2. _________________________________________________________      \n                Chief Administrative Officer \nIndian Institute of Management Ahmedabad\n1. _________________________________________________________\n2. _________________________________________________________"
+  },
+  {
+    "query": "Based on the content provided, what is the most likely purpose or nature of this document?",
+    "expected_answer": "This document appears to be a formal agreement, lease, or record related to the allocation or licensing of premises, possibly for an employee, overseen by the administration of the Indian Institute of Management Ahmedabad.",
+    "question_type": "analytical",
+    "keywords": [
+      "formal agreement",
+      "lease",
+      "record",
+      "allocation",
+      "licensing",
+      "premises",
+      "employee",
+      "administration",
+      "Indian Institute of Management Ahmedabad"
+    ],
+    "relevant_doc_ids": [
+      "doc_4"
+    ],
+    "document_content": "of the Licensed Premises or any part thereof. \nSchedule of the premises above referred to:\nHouse Type  ,No. ___  bearing Municipal Census No: __________________________Vastrapur Taluka City \nSurvey No.                    -            of ________ sq.mtr.\n(Name of Employee)\nSigned and delivered by th employee in the presence of  \n1. _____________________________________________________________ \n2. _________________________________________________________      \n                Chief Administrative Officer \nIndian Institute of Management Ahmedabad\n1. _________________________________________________________\n2. _________________________________________________________"
+  },
+  {
+    "query": "Summarize the key categories of information presented in this document snippet.",
+    "expected_answer": "The document snippet outlines a schedule of premises with details like House Type, Municipal Census No., Survey No., square meters, and location (Vastrapur Taluka City). It also indicates an employee as a signatory party, requires witnesses for the employee's signature, and mentions the Chief Administrative Officer of the Indian Institute of Management Ahmedabad, with additional witness lines.",
+    "question_type": "summary",
+    "keywords": [
+      "premises details",
+      "House Type",
+      "Municipal Census No.",
+      "Survey No.",
+      "square meters",
+      "location",
+      "Vastrapur Taluka City",
+      "employee",
+      "signatory",
+      "witnesses",
+      "Chief Administrative Officer",
+      "Indian Institute of Management Ahmedabad"
+    ],
+    "relevant_doc_ids": [
+      "doc_4"
+    ],
+    "document_content": "of the Licensed Premises or any part thereof. \nSchedule of the premises above referred to:\nHouse Type  ,No. ___  bearing Municipal Census No: __________________________Vastrapur Taluka City \nSurvey No.                    -            of ________ sq.mtr.\n(Name of Employee)\nSigned and delivered by th employee in the presence of  \n1. _____________________________________________________________ \n2. _________________________________________________________      \n                Chief Administrative Officer \nIndian Institute of Management Ahmedabad\n1. _________________________________________________________\n2. _________________________________________________________"
+  }
+]

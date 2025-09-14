@@ -1,0 +1,36 @@
+{
+  "timestamp": "2025-09-14T04:18:57.819444",
+  "test_dataset_size": 5,
+  "retrieval_quality": {
+    "bm25": {
+      "hit_rate": 0.0,
+      "mrr": 0.0,
+      "precision": 0.0,
+      "total_queries": 5
+    },
+    "vector": {
+      "hit_rate": 0.0,
+      "mrr": 0.0,
+      "precision": 0.0,
+      "total_queries": 5
+    },
+    "hybrid_reranked": {
+      "hit_rate": 0.0,
+      "mrr": 0.0,
+      "precision": 0.0,
+      "total_queries": 5
+    }
+  },
+  "response_quality": {
+    "avg_response_time": 3.1869949817657472,
+    "p95_response_time": 5.736733937263489,
+    "rouge_scores": {
+      "rouge1": 0.5571699041062208,
+      "rouge2": 0.3541415618170004,
+      "rougeL": 0.5078460781903122
+    },
+    "avg_llm_judge_score": 4.2,
+    "total_queries": 5
+  },
+  "total_evaluation_time": 49.92857122421265
+}

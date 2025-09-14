@@ -1,0 +1,18 @@
+{
+  "total_documents": 1,
+  "total_chunks": 2,
+  "document_metadata": {
+    "Applied_AI_Engineer_Cover_Letter.pdf": {
+      "total_pages": 1,
+      "file_size": 53628,
+      "processed_date": "2025-09-14T17:15:10.735808"
+    }
+  },
+  "categories_found": [
+    "general"
+  ],
+  "content_types_found": [
+    "procedural"
+  ],
+  "processing_date": "2025-09-14T17:15:13.648644"
+}

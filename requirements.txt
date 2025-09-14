@@ -17,3 +17,17 @@ pypdf
 pandas
 numpy
 ipykernel
+rouge-score
+bert-score
+datasets
+plotly
+wandb
+seaborn
+matplotlib
+scipy
+requests
+scikit-learn
+sentence-transformers
+altair
+pillow
+pyarrow

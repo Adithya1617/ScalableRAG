@@ -1,0 +1,265 @@
+[
+  {
+    "query": "What is designated as the primary submission item for evaluating the AI?",
+    "expected_answer": "Deployment on Railway, Streamlit Community, or any other cloud platform.",
+    "question_type": "factual",
+    "keywords": [
+      "primary submission item",
+      "evaluating AI",
+      "Railway",
+      "Streamlit",
+      "cloud platform"
+    ],
+    "relevant_doc_ids": [
+      "doc_0"
+    ],
+    "document_content": "Railway,\n \nStreamlit\n \nCommunity\n \nor\n \nany\n \nother\n \ncloud\n \nplatform.\n \nThis\n \nis\n \nthe\n \nprimary\n \nsubmission\n \nitem\n \nfor\n \nevaluating\n \nyour\n \nAI.\n 2.  Code  repository:  a.  A  link  to  a  GitHub  repository  containing  all  your  code  and  necessary  \ufb01les.   3.  Documentation  (README.md):  a.  A  detailed  README.md  \ufb01le  in  your  repository  covering:  i.  Major  design  decisions  and  trade-o\ufb00s  for  your  AI  pipeline.  ii.  An  architecture  diagram  (embedded  in  the  README  or  linked)  \nillustrating\n \nhow\n \nthe\n \ncomponents\n \nof\n \nyour\n \nsystem\n \ninteract.\n iii.  Clear  instructions  on  how  to  set  up  the  environment  and  run  your  \nproject\n \nlocally."
+  },
+  {
+    "query": "Based on the requirements for the README.md file, what seems to be the overarching goal or benefit of including such detailed documentation?",
+    "expected_answer": "The overarching goal of the detailed README.md file is to provide evaluators with a comprehensive understanding of the AI pipeline's design, architecture, and practical instructions for local setup and execution, thereby facilitating thorough evaluation and reproducibility.",
+    "question_type": "analytical",
+    "keywords": [
+      "README.md",
+      "goal",
+      "benefit",
+      "detailed documentation",
+      "design decisions",
+      "architecture diagram",
+      "setup instructions",
+      "evaluation",
+      "reproducibility"
+    ],
+    "relevant_doc_ids": [
+      "doc_0"
+    ],
+    "document_content": "Railway,\n \nStreamlit\n \nCommunity\n \nor\n \nany\n \nother\n \ncloud\n \nplatform.\n \nThis\n \nis\n \nthe\n \nprimary\n \nsubmission\n \nitem\n \nfor\n \nevaluating\n \nyour\n \nAI.\n 2.  Code  repository:  a.  A  link  to  a  GitHub  repository  containing  all  your  code  and  necessary  \ufb01les.   3.  Documentation  (README.md):  a.  A  detailed  README.md  \ufb01le  in  your  repository  covering:  i.  Major  design  decisions  and  trade-o\ufb00s  for  your  AI  pipeline.  ii.  An  architecture  diagram  (embedded  in  the  README  or  linked)  \nillustrating\n \nhow\n \nthe\n \ncomponents\n \nof\n \nyour\n \nsystem\n \ninteract.\n iii.  Clear  instructions  on  how  to  set  up  the  environment  and  run  your  \nproject\n \nlocally."
+  },
+  {
+    "query": "Summarize the three main submission items required for the AI evaluation.",
+    "expected_answer": "The three main submission items are: a deployed AI on a cloud platform (like Railway or Streamlit), a link to a GitHub code repository, and detailed documentation in a README.md file covering design decisions, an architecture diagram, and setup instructions.",
+    "question_type": "summary",
+    "keywords": [
+      "submission items",
+      "AI evaluation",
+      "deployed AI",
+      "code repository",
+      "GitHub",
+      "documentation",
+      "README.md"
+    ],
+    "relevant_doc_ids": [
+      "doc_0"
+    ],
+    "document_content": "Railway,\n \nStreamlit\n \nCommunity\n \nor\n \nany\n \nother\n \ncloud\n \nplatform.\n \nThis\n \nis\n \nthe\n \nprimary\n \nsubmission\n \nitem\n \nfor\n \nevaluating\n \nyour\n \nAI.\n 2.  Code  repository:  a.  A  link  to  a  GitHub  repository  containing  all  your  code  and  necessary  \ufb01les.   3.  Documentation  (README.md):  a.  A  detailed  README.md  \ufb01le  in  your  repository  covering:  i.  Major  design  decisions  and  trade-o\ufb00s  for  your  AI  pipeline.  ii.  An  architecture  diagram  (embedded  in  the  README  or  linked)  \nillustrating\n \nhow\n \nthe\n \ncomponents\n \nof\n \nyour\n \nsystem\n \ninteract.\n iii.  Clear  instructions  on  how  to  set  up  the  environment  and  run  your  \nproject\n \nlocally."
+  },
+  {
+    "query": "What are the two primary functionalities that the helpdesk application must demonstrate?",
+    "expected_answer": "The two primary functionalities are a Bulk ticket classification dashboard and an Interactive AI agent.",
+    "question_type": "factual",
+    "keywords": [
+      "Bulk ticket classification dashboard",
+      "Interactive AI agent"
+    ],
+    "relevant_doc_ids": [
+      "doc_1"
+    ],
+    "document_content": "application.\n \nThe\n \nprimary\n \nfocus\n \nis\n \nthe\n \nAI\n \npipeline;\n \nthe\n \nhelpdesk\n \nserves\n \nas\n \nthe\n \ndemo\n \ninterface.\n \nCore  features  \nYour  helpdesk  application  must  demonstrate  two  primary  functionalities:  \n1.  Bulk  ticket  classi\ufb01cation  dashboard:  a.  On  load,  the  application  should  ingest  the  tickets  from  the  provided  sample_tickets \ufb01le.  b.  The  UI  must  display  each  ticket  alongside  the  detailed  classi\ufb01cation  generated  \nby\n \nyour\n \nAI\n \npipeline,\n \nfollowing\n \nthis\n \nschema:\n i.  Topic  Tags:  Use  relevant  tags  like  How-to,  Product,  Connector,  \nLineage,\n \nAPI/SDK,\n \nSSO,\n \nGlossary,\n \nBest\n \npractices,\n \nand\n \nSensitive\n \ndata.\n ii.  Sentiment:  e.g.,  Frustrated,  Curious,  Angry,  Neutral.  iii.  Priority:  e.g.,  P0  (High),  P1  (Medium),  P2  (Low).  2.  Interactive  AI  agent:  a.  The  UI  must  provide  a  text  input  \ufb01eld  where  an  evaluator  can  submit  a  new  \nticket\n \nor\n \nquestion"
+  },
+  {
+    "query": "How does the helpdesk application serve the primary focus on the AI pipeline?",
+    "expected_answer": "The helpdesk application serves as the demo interface, providing a platform to showcase and demonstrate the detailed classification generated by the AI pipeline, which is the primary focus. It allows evaluators to see bulk classification and submit new tickets/questions to test the AI.",
+    "question_type": "analytical",
+    "keywords": [
+      "helpdesk",
+      "demo interface",
+      "AI pipeline",
+      "demonstrate",
+      "classification"
+    ],
+    "relevant_doc_ids": [
+      "doc_1"
+    ],
+    "document_content": "application.\n \nThe\n \nprimary\n \nfocus\n \nis\n \nthe\n \nAI\n \npipeline;\n \nthe\n \nhelpdesk\n \nserves\n \nas\n \nthe\n \ndemo\n \ninterface.\n \nCore  features  \nYour  helpdesk  application  must  demonstrate  two  primary  functionalities:  \n1.  Bulk  ticket  classi\ufb01cation  dashboard:  a.  On  load,  the  application  should  ingest  the  tickets  from  the  provided  sample_tickets \ufb01le.  b.  The  UI  must  display  each  ticket  alongside  the  detailed  classi\ufb01cation  generated  \nby\n \nyour\n \nAI\n \npipeline,\n \nfollowing\n \nthis\n \nschema:\n i.  Topic  Tags:  Use  relevant  tags  like  How-to,  Product,  Connector,  \nLineage,\n \nAPI/SDK,\n \nSSO,\n \nGlossary,\n \nBest\n \npractices,\n \nand\n \nSensitive\n \ndata.\n ii.  Sentiment:  e.g.,  Frustrated,  Curious,  Angry,  Neutral.  iii.  Priority:  e.g.,  P0  (High),  P1  (Medium),  P2  (Low).  2.  Interactive  AI  agent:  a.  The  UI  must  provide  a  text  input  \ufb01eld  where  an  evaluator  can  submit  a  new  \nticket\n \nor\n \nquestion"
+  },
+  {
+    "query": "Summarize the main purpose and core features of the described application.",
+    "expected_answer": "The application's main purpose is to demonstrate an AI pipeline's capabilities through a helpdesk interface. Its core features include a bulk ticket classification dashboard that ingests tickets and displays detailed AI-generated classifications (Topic Tags, Sentiment, Priority), and an interactive AI agent feature for submitting new tickets or questions for evaluation.",
+    "question_type": "summary",
+    "keywords": [
+      "AI pipeline",
+      "helpdesk application",
+      "bulk ticket classification dashboard",
+      "interactive AI agent",
+      "demonstrate",
+      "core features"
+    ],
+    "relevant_doc_ids": [
+      "doc_1"
+    ],
+    "document_content": "application.\n \nThe\n \nprimary\n \nfocus\n \nis\n \nthe\n \nAI\n \npipeline;\n \nthe\n \nhelpdesk\n \nserves\n \nas\n \nthe\n \ndemo\n \ninterface.\n \nCore  features  \nYour  helpdesk  application  must  demonstrate  two  primary  functionalities:  \n1.  Bulk  ticket  classi\ufb01cation  dashboard:  a.  On  load,  the  application  should  ingest  the  tickets  from  the  provided  sample_tickets \ufb01le.  b.  The  UI  must  display  each  ticket  alongside  the  detailed  classi\ufb01cation  generated  \nby\n \nyour\n \nAI\n \npipeline,\n \nfollowing\n \nthis\n \nschema:\n i.  Topic  Tags:  Use  relevant  tags  like  How-to,  Product,  Connector,  \nLineage,\n \nAPI/SDK,\n \nSSO,\n \nGlossary,\n \nBest\n \npractices,\n \nand\n \nSensitive\n \ndata.\n ii.  Sentiment:  e.g.,  Frustrated,  Curious,  Angry,  Neutral.  iii.  Priority:  e.g.,  P0  (High),  P1  (Medium),  P2  (Low).  2.  Interactive  AI  agent:  a.  The  UI  must  provide  a  text  input  \ufb01eld  where  an  evaluator  can  submit  a  new  \nticket\n \nor\n \nquestion"
+  },
+  {
+    "query": "What classification details are displayed in the Internal Analysis View for a new ticket?",
+    "expected_answer": "The Internal Analysis View shows the Topic, Sentiment, and Priority for a new ticket.",
+    "question_type": "factual",
+    "keywords": [
+      "Internal Analysis View",
+      "classification",
+      "Topic",
+      "Sentiment",
+      "Priority"
+    ],
+    "relevant_doc_ids": [
+      "doc_2"
+    ],
+    "document_content": "i.  Internal  Analysis  View:  Show  the  classi\ufb01cation  details  for  the  new  \nticket\n \n(Topic,\n \nSentiment,\n \nPriority).\n ii.  Final  Response  View:  1.  If  the  topic  is  How-to,  Product,  Best  practices,  API/SDK,  or  SSO,  \nthe\n \nagent\n \nmust\n \nuse\n \na\n \nRAG\n \npipeline\n \nto\n \ngenerate\n \nand\n \ndisplay\n \na\n \ndirect\n \nanswer.\n 2.  If  the  topic  is  anything  else,  the  agent  should  display  a  simple  \nmessage\n \nindicating\n \nthe\n \nticket\n \nhas\n \nbeen\n \nclassi\ufb01ed\n \nand\n \nrouted\n \n(e.g.,\n \n\"This\n \nticket\n \nhas\n \nbeen\n \nclassi\ufb01ed\n \nas\n \na\n \n'Connector'\n \nissue\n \nand\n \nrouted\n \nto\n \nthe\n \nappropriate\n \nteam.\").\n d.  Knowledge  base  for  RAG:  i.  To  answer  product-related  questions,  refer  to  Atlan's  Documentation:  https://docs.atlan.com/ ii.  To  answer  API/SDK  related  questions,  refer  to  the  Developer  Hub:  https://developer.atlan.com/ e.  Output:  All  RAG-generated  answers  must  cite  the  sources  (list  of  URLs)  used  to  \ncreate\n \nthem."
+  },
+  {
+    "query": "What is the primary difference in how RAG-generated answers are handled compared to simple classification messages in the Final Response View?",
+    "expected_answer": "RAG-generated answers are used for specific topics (How-to, Product, Best practices, API/SDK, SSO) and must cite their sources (URLs). In contrast, simple classification messages are displayed for all other topics and do not involve RAG or source citation, merely indicating the ticket has been classified and routed.",
+    "question_type": "analytical",
+    "keywords": [
+      "RAG-generated answers",
+      "Final Response View",
+      "cite sources",
+      "simple message",
+      "ticket classified",
+      "routed"
+    ],
+    "relevant_doc_ids": [
+      "doc_2"
+    ],
+    "document_content": "i.  Internal  Analysis  View:  Show  the  classi\ufb01cation  details  for  the  new  \nticket\n \n(Topic,\n \nSentiment,\n \nPriority).\n ii.  Final  Response  View:  1.  If  the  topic  is  How-to,  Product,  Best  practices,  API/SDK,  or  SSO,  \nthe\n \nagent\n \nmust\n \nuse\n \na\n \nRAG\n \npipeline\n \nto\n \ngenerate\n \nand\n \ndisplay\n \na\n \ndirect\n \nanswer.\n 2.  If  the  topic  is  anything  else,  the  agent  should  display  a  simple  \nmessage\n \nindicating\n \nthe\n \nticket\n \nhas\n \nbeen\n \nclassi\ufb01ed\n \nand\n \nrouted\n \n(e.g.,\n \n\"This\n \nticket\n \nhas\n \nbeen\n \nclassi\ufb01ed\n \nas\n \na\n \n'Connector'\n \nissue\n \nand\n \nrouted\n \nto\n \nthe\n \nappropriate\n \nteam.\").\n d.  Knowledge  base  for  RAG:  i.  To  answer  product-related  questions,  refer  to  Atlan's  Documentation:  https://docs.atlan.com/ ii.  To  answer  API/SDK  related  questions,  refer  to  the  Developer  Hub:  https://developer.atlan.com/ e.  Output:  All  RAG-generated  answers  must  cite  the  sources  (list  of  URLs)  used  to  \ncreate\n \nthem."
+  },
+  {
+    "query": "Summarize the process for generating a final response to a ticket as described in the document.",
+    "expected_answer": "The process involves classifying a new ticket by Topic, Sentiment, and Priority. Based on the topic, a final response is generated: if the topic is How-to, Product, Best practices, API/SDK, or SSO, a RAG pipeline uses specific knowledge bases (Atlan's Documentation or Developer Hub) to generate a direct, source-cited answer. For any other topic, a simple message is displayed indicating the ticket has been classified and routed.",
+    "question_type": "summary",
+    "keywords": [
+      "final response",
+      "ticket classification",
+      "RAG pipeline",
+      "direct answer",
+      "knowledge base",
+      "routed message"
+    ],
+    "relevant_doc_ids": [
+      "doc_2"
+    ],
+    "document_content": "i.  Internal  Analysis  View:  Show  the  classi\ufb01cation  details  for  the  new  \nticket\n \n(Topic,\n \nSentiment,\n \nPriority).\n ii.  Final  Response  View:  1.  If  the  topic  is  How-to,  Product,  Best  practices,  API/SDK,  or  SSO,  \nthe\n \nagent\n \nmust\n \nuse\n \na\n \nRAG\n \npipeline\n \nto\n \ngenerate\n \nand\n \ndisplay\n \na\n \ndirect\n \nanswer.\n 2.  If  the  topic  is  anything  else,  the  agent  should  display  a  simple  \nmessage\n \nindicating\n \nthe\n \nticket\n \nhas\n \nbeen\n \nclassi\ufb01ed\n \nand\n \nrouted\n \n(e.g.,\n \n\"This\n \nticket\n \nhas\n \nbeen\n \nclassi\ufb01ed\n \nas\n \na\n \n'Connector'\n \nissue\n \nand\n \nrouted\n \nto\n \nthe\n \nappropriate\n \nteam.\").\n d.  Knowledge  base  for  RAG:  i.  To  answer  product-related  questions,  refer  to  Atlan's  Documentation:  https://docs.atlan.com/ ii.  To  answer  API/SDK  related  questions,  refer  to  the  Developer  Hub:  https://developer.atlan.com/ e.  Output:  All  RAG-generated  answers  must  cite  the  sources  (list  of  URLs)  used  to  \ncreate\n \nthem."
+  },
+  {
+    "query": "What are the two core features whose successful execution is part of the first evaluation criterion?",
+    "expected_answer": "The classification dashboard and the interactive agent.",
+    "question_type": "factual",
+    "keywords": [
+      "classification dashboard",
+      "interactive agent"
+    ],
+    "relevant_doc_ids": [
+      "doc_3"
+    ],
+    "document_content": "Evaluation  criteria  \n1.  Implementation  of  core  features:  The  successful  execution  of  the  classi\ufb01cation  \ndashboard\n \nand\n \nthe\n \ninteractive\n \nagent,\n \nalong\n \nwith\n \nany\n \ncreative\n \nenhancements.\n 2.  Problem-Solving  &  Approach:  Logical  design  of  the  AI  pipeline  and  an  e\ufb00ective  UI  \nthat\n \nclearly\n \ndemonstrates\n \nthe\n \npipeline's\n \ncapabilities.\n 3.  Accuracy  of  answers:  How  do  we  measure  the  quality  of  the  answers  generated  by  \nthe\n \nmodel?\n 4.  Maintainability  &  engineering  decisions:  Quality  of  the  AI  pipelines,  thoughtful  \nmodel/tool\n \nchoices,\n \nsystem\n \narchitecture,\n \nand\n \nclean,\n \nwell-structured\n \ncode.\n 5.  Communication:  Clarity  of  explanation  in  your  documentation  \nThis  challenge  is  your  chance  to  design  an  AI  copilot  that  could  genuinely  make  customer  \nsupport\n \nmore\n \ne\ufb03cient\n \nat\n \nscale.\n \n \nWe\u2019re  excited  to  see  how  you  combine  classi\ufb01cation,  RAG,  and  thoughtful  design  to  create"
+  },
+  {
+    "query": "How do the 'Problem-Solving & Approach' and 'Communication' evaluation criteria contribute to the overall goal of designing an AI copilot that could make customer support more efficient at scale?",
+    "expected_answer": "These criteria ensure that the AI copilot is not only technically sound but also logically designed with an effective UI that clearly demonstrates its capabilities, and that its documentation is clear. This focus on usability, clarity, and comprehensibility is crucial for widespread adoption and efficient operation in a customer support environment.",
+    "question_type": "analytical",
+    "keywords": [
+      "Problem-Solving & Approach",
+      "Communication",
+      "logical design",
+      "effective UI",
+      "clearly demonstrates capabilities",
+      "clear documentation",
+      "usability",
+      "clarity",
+      "comprehensibility",
+      "efficient customer support"
+    ],
+    "relevant_doc_ids": [
+      "doc_3"
+    ],
+    "document_content": "Evaluation  criteria  \n1.  Implementation  of  core  features:  The  successful  execution  of  the  classi\ufb01cation  \ndashboard\n \nand\n \nthe\n \ninteractive\n \nagent,\n \nalong\n \nwith\n \nany\n \ncreative\n \nenhancements.\n 2.  Problem-Solving  &  Approach:  Logical  design  of  the  AI  pipeline  and  an  e\ufb00ective  UI  \nthat\n \nclearly\n \ndemonstrates\n \nthe\n \npipeline's\n \ncapabilities.\n 3.  Accuracy  of  answers:  How  do  we  measure  the  quality  of  the  answers  generated  by  \nthe\n \nmodel?\n 4.  Maintainability  &  engineering  decisions:  Quality  of  the  AI  pipelines,  thoughtful  \nmodel/tool\n \nchoices,\n \nsystem\n \narchitecture,\n \nand\n \nclean,\n \nwell-structured\n \ncode.\n 5.  Communication:  Clarity  of  explanation  in  your  documentation  \nThis  challenge  is  your  chance  to  design  an  AI  copilot  that  could  genuinely  make  customer  \nsupport\n \nmore\n \ne\ufb03cient\n \nat\n \nscale.\n \n \nWe\u2019re  excited  to  see  how  you  combine  classi\ufb01cation,  RAG,  and  thoughtful  design  to  create"
+  },
+  {
+    "query": "Summarize the key areas that will be assessed when evaluating the AI copilot challenge submissions.",
+    "expected_answer": "The evaluation will cover the implementation of core features, the problem-solving approach and UI design, the accuracy of generated answers, the quality of engineering decisions and maintainability, and the clarity of documentation.",
+    "question_type": "summary",
+    "keywords": [
+      "implementation",
+      "core features",
+      "problem-solving",
+      "approach",
+      "UI design",
+      "accuracy",
+      "answers",
+      "maintainability",
+      "engineering decisions",
+      "communication",
+      "documentation"
+    ],
+    "relevant_doc_ids": [
+      "doc_3"
+    ],
+    "document_content": "Evaluation  criteria  \n1.  Implementation  of  core  features:  The  successful  execution  of  the  classi\ufb01cation  \ndashboard\n \nand\n \nthe\n \ninteractive\n \nagent,\n \nalong\n \nwith\n \nany\n \ncreative\n \nenhancements.\n 2.  Problem-Solving  &  Approach:  Logical  design  of  the  AI  pipeline  and  an  e\ufb00ective  UI  \nthat\n \nclearly\n \ndemonstrates\n \nthe\n \npipeline's\n \ncapabilities.\n 3.  Accuracy  of  answers:  How  do  we  measure  the  quality  of  the  answers  generated  by  \nthe\n \nmodel?\n 4.  Maintainability  &  engineering  decisions:  Quality  of  the  AI  pipelines,  thoughtful  \nmodel/tool\n \nchoices,\n \nsystem\n \narchitecture,\n \nand\n \nclean,\n \nwell-structured\n \ncode.\n 5.  Communication:  Clarity  of  explanation  in  your  documentation  \nThis  challenge  is  your  chance  to  design  an  AI  copilot  that  could  genuinely  make  customer  \nsupport\n \nmore\n \ne\ufb03cient\n \nat\n \nscale.\n \n \nWe\u2019re  excited  to  see  how  you  combine  classi\ufb01cation,  RAG,  and  thoughtful  design  to  create"
+  },
+  {
+    "query": "What tools are suggested for building the helpdesk application interface?",
+    "expected_answer": "The helpdesk application interface should be built using a tool like Streamlit, Gradio, Replit, or a simple web framework (e.g., Flask/React).",
+    "question_type": "factual",
+    "keywords": [
+      "Streamlit",
+      "Gradio",
+      "Replit",
+      "Flask",
+      "React",
+      "web framework",
+      "helpdesk application"
+    ],
+    "relevant_doc_ids": [
+      "doc_4"
+    ],
+    "document_content": "create\n \nthem.\n \nAI  &  Engineering  requirements  \n1.  AI  logic:  Clean,  well-structured  code  for  the  classi\ufb01cation  and  RAG  pipelines.  Your  \nchoice\n \nof\n \nmodels\n \nand\n \ntools\n \nshould\n \nbe\n \ndeliberate\n \nand\n \nexplained.\n 2.  Application:  The  helpdesk  should  be  built  using  a  tool  like  Streamlit,  Gradio,  Replit,  or  \na\n \nsimple\n \nweb\n \nframework\n \n(e.g.,\n \nFlask/React)\n \nto\n \nserve\n \nas\n \nthe\n \ninterface\n \nfor\n \nyour\n \nAI.\n a.  Use  these  tool  as  directional  /  use  any  tooling  of  your  choice  to  solve  the  \nproblem\n 3.  Execution:  The  entire  experience  should  be  smooth  and  functional  in  the  deployed  \napplication.\n \nDeliverables  \n1.  Working  helpdesk  application:  a.  A  link  to  your  live,  deployed  application  on  a  platform  like  Vercel,  Replit,  \nRailway,\n \nStreamlit\n \nCommunity\n \nor\n \nany\n \nother\n \ncloud\n \nplatform.\n \nThis\n \nis\n \nthe\n \nprimary\n \nsubmission\n \nitem\n \nfor\n \nevaluating\n \nyour\n \nAI."
+  },
+  {
+    "query": "Beyond just implementing the AI logic, why is it emphasized that the choice of models and tools should be 'deliberate and explained'?",
+    "expected_answer": "It is emphasized that the choice of models and tools should be 'deliberate and explained' to demonstrate a well-reasoned and thoughtful approach to the AI logic. This allows for the evaluation of the technical decisions and the underlying rationale, rather than just the functionality.",
+    "question_type": "analytical",
+    "keywords": [
+      "deliberate",
+      "explained",
+      "models",
+      "tools",
+      "AI logic",
+      "reasoning",
+      "technical decisions",
+      "rationale"
+    ],
+    "relevant_doc_ids": [
+      "doc_4"
+    ],
+    "document_content": "create\n \nthem.\n \nAI  &  Engineering  requirements  \n1.  AI  logic:  Clean,  well-structured  code  for  the  classi\ufb01cation  and  RAG  pipelines.  Your  \nchoice\n \nof\n \nmodels\n \nand\n \ntools\n \nshould\n \nbe\n \ndeliberate\n \nand\n \nexplained.\n 2.  Application:  The  helpdesk  should  be  built  using  a  tool  like  Streamlit,  Gradio,  Replit,  or  \na\n \nsimple\n \nweb\n \nframework\n \n(e.g.,\n \nFlask/React)\n \nto\n \nserve\n \nas\n \nthe\n \ninterface\n \nfor\n \nyour\n \nAI.\n a.  Use  these  tool  as  directional  /  use  any  tooling  of  your  choice  to  solve  the  \nproblem\n 3.  Execution:  The  entire  experience  should  be  smooth  and  functional  in  the  deployed  \napplication.\n \nDeliverables  \n1.  Working  helpdesk  application:  a.  A  link  to  your  live,  deployed  application  on  a  platform  like  Vercel,  Replit,  \nRailway,\n \nStreamlit\n \nCommunity\n \nor\n \nany\n \nother\n \ncloud\n \nplatform.\n \nThis\n \nis\n \nthe\n \nprimary\n \nsubmission\n \nitem\n \nfor\n \nevaluating\n \nyour\n \nAI."
+  },
+  {
+    "query": "Summarize the key AI & Engineering requirements outlined in the document.",
+    "expected_answer": "The key AI & Engineering requirements include having clean, well-structured AI logic for classification and RAG pipelines with deliberate and explained model choices, building the helpdesk application interface using a tool like Streamlit or a simple web framework, and ensuring the deployed application is smooth and functional.",
+    "question_type": "summary",
+    "keywords": [
+      "AI logic",
+      "engineering requirements",
+      "classification",
+      "RAG pipelines",
+      "application interface",
+      "Streamlit",
+      "Flask",
+      "deployed",
+      "functional"
+    ],
+    "relevant_doc_ids": [
+      "doc_4"
+    ],
+    "document_content": "create\n \nthem.\n \nAI  &  Engineering  requirements  \n1.  AI  logic:  Clean,  well-structured  code  for  the  classi\ufb01cation  and  RAG  pipelines.  Your  \nchoice\n \nof\n \nmodels\n \nand\n \ntools\n \nshould\n \nbe\n \ndeliberate\n \nand\n \nexplained.\n 2.  Application:  The  helpdesk  should  be  built  using  a  tool  like  Streamlit,  Gradio,  Replit,  or  \na\n \nsimple\n \nweb\n \nframework\n \n(e.g.,\n \nFlask/React)\n \nto\n \nserve\n \nas\n \nthe\n \ninterface\n \nfor\n \nyour\n \nAI.\n a.  Use  these  tool  as  directional  /  use  any  tooling  of  your  choice  to  solve  the  \nproblem\n 3.  Execution:  The  entire  experience  should  be  smooth  and  functional  in  the  deployed  \napplication.\n \nDeliverables  \n1.  Working  helpdesk  application:  a.  A  link  to  your  live,  deployed  application  on  a  platform  like  Vercel,  Replit,  \nRailway,\n \nStreamlit\n \nCommunity\n \nor\n \nany\n \nother\n \ncloud\n \nplatform.\n \nThis\n \nis\n \nthe\n \nprimary\n \nsubmission\n \nitem\n \nfor\n \nevaluating\n \nyour\n \nAI."
+  }
+]
