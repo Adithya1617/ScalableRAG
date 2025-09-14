@@ -39,3 +39,12 @@ npm run build
 npm run start
 ```
 
+
+## Deploy to Vercel
+
+1. Import the GitHub repo in Vercel
+2. Set Project Directory to `frontend`
+3. Set Environment Variable:
+	- `NEXT_PUBLIC_BACKEND_URL` = your Render backend URL (e.g., https://scalable-rag-backend.onrender.com)
+4. Deploy
+

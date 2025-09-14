@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: scalable-rag-backend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: |
+      pip install -U pip
+      pip install -r requirements.txt
+    startCommand: |
+      python run_backend.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12
+      # Backend settings
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 8000
+      # Optional: API keys (set values in Render dashboard or as secrets)
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: COHERE_API_KEY
+        sync: false
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: PINECONE_INDEX_NAME
+        sync: false
