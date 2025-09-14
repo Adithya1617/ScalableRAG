@@ -8,21 +8,14 @@ services:
       pip install -U pip
       pip install -r requirements.txt
     startCommand: |
-      python run_backend.py
+      cd rag_app && uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.12
-      # Backend settings
-      - key: HOST
-        value: 0.0.0.0
-      - key: PORT
-        value: 8000
-      # Optional: API keys (set values in Render dashboard or as secrets)
-      - key: GEMINI_API_KEY
-        sync: false
-      - key: COHERE_API_KEY
-        sync: false
-      - key: PINECONE_API_KEY
-        sync: false
-      - key: PINECONE_INDEX_NAME
-        sync: false
+      # Optional: API keys (set values in Render dashboard Environment)
+      # Render Blueprint does not support 'sync: false' entries.
+      # Add these in the Render UI after creating the service:
+      # - GEMINI_API_KEY
+      # - COHERE_API_KEY
+      # - PINECONE_API_KEY
+      # - PINECONE_INDEX_NAME
