@@ -1,18 +1,19 @@
 {
   "total_documents": 1,
-  "total_chunks": 2,
+  "total_chunks": 8,
   "document_metadata": {
-    "Applied_AI_Engineer_Cover_Letter.pdf": {
-      "total_pages": 1,
-      "file_size": 53628,
-      "processed_date": "2025-09-14T17:15:10.735808"
+    "Challenge - Customer Support Copilot.pdf": {
+      "total_pages": 3,
+      "file_size": 86305,
+      "processed_date": "2025-09-15T01:18:21.067295"
     }
   },
   "categories_found": [
-    "general"
+    "general",
+    "technical"
   ],
   "content_types_found": [
-    "procedural"
+    "standard"
   ],
-  "processing_date": "2025-09-14T17:15:13.648644"
+  "processing_date": "2025-09-15T01:18:24.200837"
 }
