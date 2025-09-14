@@ -13,6 +13,7 @@ fastapi
 uvicorn
 unstructured
 pinecone-client
+pinecone
 pypdf
 pandas
 numpy

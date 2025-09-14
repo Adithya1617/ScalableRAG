@@ -2,7 +2,12 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from pipeline import chain, intelligent_rag_query
+try:
+    # When imported as a package (rag_app.main)
+    from .pipeline import chain, intelligent_rag_query
+except Exception:
+    # When executed with working dir set to rag_app (uvicorn main:app)
+    from pipeline import chain, intelligent_rag_query
 import os
 import shutil
 from pathlib import Path
@@ -90,7 +95,10 @@ def get_or_create_evaluator():
     if global_evaluator is None and EVALUATION_AVAILABLE:
         try:
             # Import retrievers from pipeline
-            from pipeline import final_retriever, retriever_vector
+            try:
+                from .pipeline import final_retriever, retriever_vector
+            except Exception:
+                from pipeline import final_retriever, retriever_vector
             import pickle
             
             # Load BM25 retriever
@@ -143,9 +151,10 @@ async def intelligent_query(payload: IntelligentQueryRequest):
 async def upload_and_index(files: list[UploadFile] = File(...)):
     """Upload documents and automatically create index"""
     try:
-        # Create uploads directory if it doesn't exist
+        # Create uploads directory (supports override via UPLOAD_DIR env)
         root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        upload_dir = Path(root_dir) / "uploads"
+        upload_dir_env = os.getenv("UPLOAD_DIR")
+        upload_dir = Path(upload_dir_env) if upload_dir_env else (Path(root_dir) / "uploads")
         upload_dir.mkdir(exist_ok=True)
 
         # Clear existing uploads

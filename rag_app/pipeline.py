@@ -38,9 +38,13 @@ class CitationEnhancer:
     """Enhanced citation system with passage highlighting and confidence scoring"""
     
     def __init__(self):
-        # Initialize Gemini for citation analysis
-        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-        self.citation_model = genai.GenerativeModel("gemini-2.5-flash")
+        # Initialize Gemini for citation analysis (optional)
+        api_key = os.getenv("GEMINI_API_KEY")
+        if api_key:
+            genai.configure(api_key=api_key)
+            self.citation_model = genai.GenerativeModel("gemini-2.5-flash")
+        else:
+            self.citation_model = None
     
     def extract_citations(self, query: str, response: str, documents: List[Document]) -> List[Dict[str, Any]]:
         """Extract and enhance citations from response and documents"""
@@ -273,9 +277,13 @@ class QueryIntelligence:
             ]
         }
         
-        # Initialize Gemini for query expansion
-        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-        self.expansion_model = genai.GenerativeModel("gemini-2.5-flash")
+        # Initialize Gemini for query expansion (optional)
+        api_key = os.getenv("GEMINI_API_KEY")
+        if api_key:
+            genai.configure(api_key=api_key)
+            self.expansion_model = genai.GenerativeModel("gemini-2.5-flash")
+        else:
+            self.expansion_model = None
     
     def detect_query_type(self, query: str) -> QueryType:
         """Detect the type of query for intelligent processing"""
@@ -311,6 +319,8 @@ class QueryIntelligence:
             prompt = expansion_prompts.get(query_type, expansion_prompts[QueryType.GENERAL])
             prompt += "\n\nReturn only the questions, one per line, without numbering or bullet points."
             
+            if not self.expansion_model:
+                return []
             response = self.expansion_model.generate_content(prompt)
             
             # Parse the response to extract individual queries
@@ -399,9 +409,13 @@ class GeminiLLM(LLM):
     def __init__(self, model_name: str = "gemini-2.5-flash", **kwargs):
         super().__init__(**kwargs)
         self._model_name = model_name
-        # Configure the API key
-        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-        self._model = genai.GenerativeModel(model_name)
+        # Configure the API key (optional)
+        api_key = os.getenv("GEMINI_API_KEY")
+        if api_key:
+            genai.configure(api_key=api_key)
+            self._model = genai.GenerativeModel(model_name)
+        else:
+            self._model = None
     
     @property
     def _llm_type(self) -> str:
@@ -416,15 +430,24 @@ class GeminiLLM(LLM):
     ) -> str:
         """Call the Gemini API"""
         try:
+            if not self._model:
+                return "Error: GEMINI_API_KEY not configured"
             response = self._model.generate_content(prompt)
             return response.text
         except Exception as e:
             print(f"Error calling Gemini API: {e}")
             return f"Error: {str(e)}"
 
-# Initialize Pinecone
-pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
-index = pc.Index(os.getenv("PINECONE_INDEX_NAME", "quickstart"))
+# Initialize Pinecone (optional)
+_pinecone_key = os.getenv("PINECONE_API_KEY")
+_pinecone_index_name = os.getenv("PINECONE_INDEX_NAME", "quickstart")
+index = None
+if _pinecone_key:
+    try:
+        pc = Pinecone(api_key=_pinecone_key)
+        index = pc.Index(_pinecone_index_name)
+    except Exception as e:
+        print(f"Error initializing Pinecone: {e}")
 
 # Custom Pinecone retriever using llama-text-embed-v2 with enhanced metadata support
 class PineconeLlamaRetriever(BaseRetriever):
@@ -629,7 +652,9 @@ class PineconeLlamaRetriever(BaseRetriever):
 # Initialize enhanced components
 query_intelligence = QueryIntelligence()
 citation_enhancer = CitationEnhancer()
-retriever_vector = PineconeLlamaRetriever(index=index, top_k=4, query_intelligence=query_intelligence)
+retriever_vector = None
+if index is not None:
+    retriever_vector = PineconeLlamaRetriever(index=index, top_k=4, query_intelligence=query_intelligence)
 
 # Load BM25 retriever from pickle
 import os
@@ -638,21 +663,29 @@ with open(bm25_path, "rb") as f:
     bm25_retriever = pickle.load(f)
 
 # Combine BM25 and vector retrievers
+retrievers_list = [bm25_retriever] + ([retriever_vector] if retriever_vector else [])
+weights_list = [1.0] if not retriever_vector else [0.3, 0.7]
 hybridRetriever = EnsembleRetriever(
-    retrievers=[bm25_retriever, retriever_vector],
-    weights=[0.3, 0.7]
+    retrievers=retrievers_list,
+    weights=weights_list
 )
 
 # Add Cohere reranker
-reranker = CohereRerank(
-    cohere_api_key=os.getenv("COHERE_API_KEY"),
-    top_n=2,
-    model="rerank-english-v3.0"
-)
-final_retriever = ContextualCompressionRetriever(
-    base_compressor=reranker,
-    base_retriever=hybridRetriever
-)
+final_retriever = hybridRetriever
+cohere_key = os.getenv("COHERE_API_KEY")
+if cohere_key:
+    try:
+        reranker = CohereRerank(
+            cohere_api_key=cohere_key,
+            top_n=2,
+            model="rerank-english-v3.0"
+        )
+        final_retriever = ContextualCompressionRetriever(
+            base_compressor=reranker,
+            base_retriever=hybridRetriever
+        )
+    except Exception as e:
+        print(f"Failed to initialize Cohere reranker, using base retriever: {e}")
 
 # Define the prompt template properly
 prompt = ChatPromptTemplate.from_template("""
