@@ -13,7 +13,7 @@ services:
     autoDeploy: false
     envVars:
       - key: PYTHON_VERSION
-        value: 3.12
+        value: 3.12.7
       # Set the following in the Render Dashboard after creation:
       # - GEMINI_API_KEY
       # - COHERE_API_KEY
