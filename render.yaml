@@ -8,7 +8,7 @@ services:
       pip install -U pip
       pip install -r requirements.txt
     startCommand: |
-      cd rag_app && uvicorn main_minimal:app --host 0.0.0.0 --port $PORT --timeout-keep-alive 120 --log-level info
+      uvicorn rag_app.main_minimal:app --host 0.0.0.0 --port $PORT --timeout-keep-alive 120 --log-level info
     healthCheckPath: /health
     autoDeploy: false
     envVars:
