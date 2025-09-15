@@ -26,12 +26,15 @@ def test_endpoint(url, method='GET', data=None):
 def main():
     base_url = "https://scalablerag-main.onrender.com"
     
-    print("🧪 Testing API endpoints...")
+    print("🧪 Testing optimized API endpoints...")
     print(f"Base URL: {base_url}")
     print("=" * 50)
     
     # Test health endpoint
     test_endpoint(f"{base_url}/health")
+    
+    # Test status endpoint (new)
+    test_endpoint(f"{base_url}/status")
     
     # Test init endpoint
     test_endpoint(f"{base_url}/init")

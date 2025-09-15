@@ -26,98 +26,107 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.on_event("startup")
+async def startup_event():
+    """Start background RAG initialization when the app starts"""
+    logger.info("🚀 FastAPI application starting up...")
+    # Start background initialization but don't wait for it
+    start_background_rag_init()
+    logger.info("✅ API is ready to serve requests (RAG loading in background)")
+
 # Global variables for initialization state
 _rag_initialized = False
+_initialization_in_progress = False
 _initialization_error = None
 _chain = None
 _intelligent_rag_query = None
 _uploaded_files = []
+_init_thread = None
 
-def safe_initialize_rag():
-    """Safely initialize RAG system with timeout and error handling"""
-    global _rag_initialized, _initialization_error, _chain, _intelligent_rag_query
+def start_background_rag_init():
+    """Start RAG initialization in background without blocking"""
+    global _initialization_in_progress, _init_thread
     
-    if _rag_initialized:
-        return True
+    if _rag_initialized or _initialization_in_progress:
+        return
     
-    if _initialization_error:
-        return False
+    _initialization_in_progress = True
+    logger.info("🔄 Starting background RAG pipeline initialization...")
     
-    try:
-        logger.info("🔄 Starting RAG pipeline initialization...")
+    def init_worker():
+        global _rag_initialized, _initialization_error, _chain, _intelligent_rag_query, _initialization_in_progress
         
-        # Try to import pipeline with timeout (Windows compatible)
-        import threading
-        
-        result = {"success": False, "error": None}
-        
-        def init_thread():
+        try:
+            # Import pipeline components
+            logger.info("📦 Loading RAG pipeline components...")
             try:
-                # Import pipeline components
-                try:
-                    from .pipeline import chain, intelligent_rag_query
-                except ImportError:
-                    from pipeline import chain, intelligent_rag_query
-                
-                result["chain"] = chain
-                result["intelligent_rag_query"] = intelligent_rag_query
-                result["success"] = True
-                
-            except Exception as e:
-                result["error"] = str(e)
-        
-        # Start initialization in separate thread
-        thread = threading.Thread(target=init_thread)
-        thread.daemon = True
-        thread.start()
-        
-        # Wait for completion with timeout
-        thread.join(timeout=30)
-        
-        if thread.is_alive():
-            # Thread is still running, initialization timed out
-            _initialization_error = "RAG initialization timed out after 30 seconds"
-            logger.error(f"❌ {_initialization_error}")
-            return False
-        
-        if result["success"]:
-            _chain = result["chain"]
-            _intelligent_rag_query = result["intelligent_rag_query"]
-            _rag_initialized = True
-            logger.info("✅ RAG pipeline initialized successfully")
-            return True
-        else:
-            _initialization_error = f"RAG initialization failed: {result['error']}"
-            logger.error(f"❌ {_initialization_error}")
-            return False
+                from .pipeline import chain, intelligent_rag_query
+            except ImportError:
+                from pipeline import chain, intelligent_rag_query
             
-    except Exception as e:
-        error_msg = f"RAG initialization failed: {str(e)}"
-        logger.error(f"❌ {error_msg}")
-        _initialization_error = error_msg
-        _rag_initialized = False
-        return False
+            _chain = chain
+            _intelligent_rag_query = intelligent_rag_query
+            _rag_initialized = True
+            _initialization_in_progress = False
+            logger.info("✅ RAG pipeline initialized successfully in background")
+            
+        except Exception as e:
+            _initialization_error = f"RAG initialization failed: {str(e)}"
+            _initialization_in_progress = False
+            logger.error(f"❌ {_initialization_error}")
+    
+    # Start in daemon thread so it doesn't block shutdown
+    _init_thread = threading.Thread(target=init_worker, daemon=True)
+    _init_thread.start()
+
+def get_rag_status():
+    """Get current RAG initialization status"""
+    if _rag_initialized:
+        return {"status": "ready", "message": "RAG system is fully loaded"}
+    elif _initialization_in_progress:
+        return {"status": "loading", "message": "RAG system is initializing in background"}
+    elif _initialization_error:
+        return {"status": "error", "message": f"RAG initialization failed: {_initialization_error}"}
+    else:
+        return {"status": "not_started", "message": "RAG system not yet initialized"}
 
 def get_mock_response(query: str, include_analysis: bool = False, include_citations: bool = False) -> Dict[str, Any]:
-    """Generate mock response when RAG system is not available"""
+    """Generate intelligent mock response when RAG system is not available"""
+    
+    # Simple keyword-based response generation
+    query_lower = query.lower()
+    
+    if any(word in query_lower for word in ['artificial intelligence', 'ai', 'machine learning', 'ml']):
+        response_text = """Artificial Intelligence (AI) is a branch of computer science that aims to create intelligent machines capable of performing tasks that typically require human intelligence. This includes learning, reasoning, problem-solving, perception, and language understanding. Machine Learning is a subset of AI that enables systems to learn and improve from experience without being explicitly programmed."""
+    elif any(word in query_lower for word in ['deep learning', 'neural network', 'cnn', 'rnn']):
+        response_text = """Deep Learning is a subset of machine learning that uses artificial neural networks with multiple layers to model and understand complex patterns in data. Neural networks are inspired by the human brain and consist of interconnected nodes (neurons) that process information. Common architectures include Convolutional Neural Networks (CNNs) for image processing and Recurrent Neural Networks (RNNs) for sequential data."""
+    elif any(word in query_lower for word in ['python', 'programming', 'code', 'development']):
+        response_text = """Python is a high-level, interpreted programming language known for its simplicity and readability. It's widely used in data science, machine learning, web development, and automation. Python's extensive library ecosystem makes it particularly popular for AI and ML projects, with libraries like TensorFlow, PyTorch, scikit-learn, and pandas."""
+    elif any(word in query_lower for word in ['data science', 'analytics', 'statistics']):
+        response_text = """Data Science is an interdisciplinary field that combines statistical analysis, machine learning, and domain expertise to extract insights from data. It involves collecting, cleaning, analyzing, and interpreting large datasets to support decision-making. Key tools include Python, R, SQL, and various visualization libraries."""
+    else:
+        response_text = f"""I understand you're asking about: "{query}". While the full AI-powered RAG system is initializing in the background, I can provide this basic response. The system will have access to comprehensive knowledge and can provide detailed, citation-backed answers once fully loaded."""
+    
     response = {
-        "response": f"I understand you're asking about: '{query}'. However, the full AI system is currently initializing. This is a basic response to keep the service available.",
+        "response": response_text,
         "query": query,
         "timestamp": time.time(),
-        "mode": "fallback",
-        "note": "This is a simplified response. Full AI capabilities will be available once the system finishes initializing."
+        "mode": "lightweight_fallback",
+        "note": "This is a basic response. Enhanced AI capabilities will be available once the system finishes initializing."
     }
     
     if include_analysis:
         response["analysis"] = {
-            "intent": "general_inquiry",
-            "complexity": "unknown",
-            "status": "fallback_mode"
+            "intent": "knowledge_inquiry",
+            "complexity": "basic",
+            "status": "fallback_mode",
+            "keywords_detected": [word for word in ['ai', 'machine learning', 'python', 'data science'] if word in query_lower]
         }
     
     if include_citations:
         response["citations"] = []
         response["sources"] = []
+        response["source_note"] = "Citations will be available once the RAG system with document access is fully loaded"
     
     return response
 
@@ -132,11 +141,13 @@ class IntelligentQueryRequest(BaseModel):
 @app.get("/health")
 async def health_check():
     """Health check endpoint - always available"""
+    status = get_rag_status()
     return {
         "status": "healthy", 
         "message": "RAG Chatbot API is running",
-        "rag_initialized": _rag_initialized,
-        "initialization_error": _initialization_error
+        "rag_status": status["status"],
+        "rag_message": status["message"],
+        "rag_initialized": _rag_initialized
     }
 
 @app.post("/query")
@@ -147,9 +158,18 @@ async def query_json(payload: QueryRequest):
             result = _chain.invoke(payload.query)
             return {"response": result}
         else:
+            # Start background init if not already started
+            if not _initialization_in_progress and not _rag_initialized:
+                start_background_rag_init()
+            
             # Return mock response when RAG not available
             mock_response = get_mock_response(payload.query)
-            return {"response": mock_response["response"]}
+            status = get_rag_status()
+            return {
+                "response": mock_response["response"],
+                "rag_status": status["status"],
+                "note": status["message"]
+            }
     except Exception as e:
         logger.error(f"Query error: {e}")
         return {"response": f"I encountered an error processing your query: '{payload.query}'. Please try again."}
@@ -171,8 +191,16 @@ async def intelligent_query(payload: IntelligentQueryRequest):
             
             return result
         else:
+            # Start background init if not already started
+            if not _initialization_in_progress and not _rag_initialized:
+                start_background_rag_init()
+            
             # Return enhanced mock response
-            return get_mock_response(payload.query, payload.include_analysis, payload.include_citations)
+            mock_response = get_mock_response(payload.query, payload.include_analysis, payload.include_citations)
+            status = get_rag_status()
+            mock_response["rag_status"] = status["status"]
+            mock_response["note"] = status["message"]
+            return mock_response
     except Exception as e:
         logger.error(f"Intelligent query error: {e}")
         return get_mock_response(payload.query, payload.include_analysis, payload.include_citations)
@@ -250,16 +278,35 @@ async def upload_and_index(files: list[UploadFile] = File(...)):
 async def initialize_rag():
     """Manual initialization endpoint for testing"""
     try:
-        success = safe_initialize_rag()
-        if success:
-            return {"message": "RAG system initialized successfully", "status": "success"}
-        else:
-            return {"message": f"RAG initialization failed: {_initialization_error}", "status": "error"}
+        if _rag_initialized:
+            return {"message": "RAG system already initialized", "status": "success"}
+        
+        if _initialization_in_progress:
+            return {"message": "RAG system is currently initializing", "status": "in_progress"}
+        
+        # Start background initialization
+        start_background_rag_init()
+        return {"message": "RAG initialization started in background", "status": "started"}
+        
     except Exception as e:
         logger.error(f"Init endpoint error: {e}")
         return {"message": f"Initialization error: {str(e)}", "status": "error"}
 
 # Minimal placeholder endpoints for other functionality
+@app.get("/status")
+async def get_rag_status_endpoint():
+    """Get detailed RAG system status"""
+    status = get_rag_status()
+    return {
+        "rag_initialized": _rag_initialized,
+        "initialization_in_progress": _initialization_in_progress,
+        "initialization_error": _initialization_error,
+        "status": status["status"],
+        "message": status["message"],
+        "uploaded_files_count": len(_uploaded_files),
+        "timestamp": time.time()
+    }
+
 @app.get("/evaluations")
 async def get_evaluations():
     """Get list of evaluation results"""
