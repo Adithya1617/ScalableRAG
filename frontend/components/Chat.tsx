@@ -2,6 +2,7 @@
 
 import { intelligentQuery, realtimeMetrics } from '@/lib/api'
 import { useState } from 'react'
+import { useInitialization } from './tutoring/InitializationProvider'
 
 type Message = {
   role: 'user' | 'bot'
@@ -19,9 +20,11 @@ export default function Chat() {
   const [includeCitations, setIncludeCitations] = useState(true)
   const [enableAdvanced, setEnableAdvanced] = useState(true)
   const [categoryFilter, setCategoryFilter] = useState('All Categories')
+  
+  const { isInitialized, isInitializing, initError } = useInitialization()
 
   const send = async () => {
-    if (!text.trim() || busy) return
+    if (!text.trim() || busy || !isInitialized) return
     setBusy(true)
     const question = text
     setMessages(m => [...m, { role: 'user', content: question }])
@@ -69,6 +72,8 @@ export default function Chat() {
     }
   }
 
+  const isDisabled = !isInitialized || isInitializing || initError !== null
+
   return (
     <div className="card">
       <h2>💬 Chat</h2>
@@ -96,8 +101,35 @@ export default function Chat() {
       </div>
 
       <div className="mt">
-        <input className="input" placeholder="Ask a question..." value={text} onChange={e => setText(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') send() }} />
-        <button className="btn primary mt" onClick={send} disabled={busy}>{busy ? 'Sending...' : 'Send'}</button>
+        {initError ? (
+          <div className="card" style={{borderColor: '#ef4444', backgroundColor: '#fef2f2'}}>
+            <p style={{color: '#dc2626'}}>❌ System initialization failed. Please refresh the page to retry.</p>
+          </div>
+        ) : !isInitialized ? (
+          <div className="card" style={{borderColor: '#f59e0b', backgroundColor: '#fffbeb'}}>
+            <p style={{color: '#d97706'}}>⏳ Initializing AI system, please wait...</p>
+          </div>
+        ) : null}
+        
+        <input 
+          className="input" 
+          placeholder={
+            isDisabled 
+              ? "Please wait for system initialization..." 
+              : "Ask a question..."
+          } 
+          value={text} 
+          onChange={e => setText(e.target.value)} 
+          onKeyDown={e => { if (e.key === 'Enter') send() }}
+          disabled={isDisabled}
+        />
+        <button 
+          className="btn primary mt" 
+          onClick={send} 
+          disabled={isDisabled || busy || !text.trim()}
+        >
+          {busy ? 'Sending...' : 'Send'}
+        </button>
       </div>
 
       <hr className="mt" />
