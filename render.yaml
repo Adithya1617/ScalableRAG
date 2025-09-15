@@ -6,16 +6,12 @@ services:
     plan: free
     buildCommand: |
       pip install -U pip
-      pip install -r requirements.txt
+      pip install fastapi uvicorn python-multipart pydantic
     startCommand: |
-      uvicorn rag_app.main_minimal:app --host 0.0.0.0 --port $PORT --timeout-keep-alive 120 --log-level info
+      uvicorn rag_app.main_ultra_minimal:app --host 0.0.0.0 --port $PORT --timeout-keep-alive 120 --log-level info
     healthCheckPath: /health
     autoDeploy: false
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.7
-      # Set the following in the Render Dashboard after creation:
-      # - GEMINI_API_KEY
-      # - COHERE_API_KEY
-      # - PINECONE_API_KEY
-      # - PINECONE_INDEX_NAME (default: quickstart)
+      # Ultra-minimal mode doesn't require API keys
