@@ -21,7 +21,7 @@ export default function Chat() {
   const [enableAdvanced, setEnableAdvanced] = useState(true)
   const [categoryFilter, setCategoryFilter] = useState('All Categories')
   
-  const { isInitialized, isInitializing, initError } = useInitialization()
+  const { isInitialized, isInitializing, initError, backendMode } = useInitialization()
 
   const send = async () => {
     if (!text.trim() || busy || !isInitialized) return
@@ -38,17 +38,25 @@ export default function Chat() {
         metadata_filters: categoryFilter === 'All Categories' ? null : { document_category: categoryFilter.toLowerCase() }
       }
       const res = await intelligentQuery(payload)
+      
+      // Handle different response formats based on backend mode
       const bot: Message = {
         role: 'bot',
         content: res.response || 'No response',
-        query_analysis: res.query_analysis,
-        citations: res.citations || []
+        query_analysis: res.analysis || res.query_analysis, // Ultra-minimal uses 'analysis'
+        citations: res.citations || res.sources || [] // Handle both formats
       }
+      
+      // Add backend mode info for ultra-minimal responses
+      if (backendMode === 'ultra_minimal' && res.rag_status) {
+        bot.content += `\n\n_Note: Response from ${backendMode} mode (${res.rag_status})_`
+      }
+      
       // Show the main response immediately
       setMessages(m => [...m, bot])
 
-      // Fetch advanced metrics in the background and append a separate message when ready
-      if (enableAdvanced) {
+      // Fetch advanced metrics only if backend supports it (not in ultra-minimal mode)
+      if (enableAdvanced && backendMode !== 'ultra_minimal') {
         ;(async () => {
           try {
             const metrics = await realtimeMetrics(question)
@@ -77,6 +85,20 @@ export default function Chat() {
   return (
     <div className="card">
       <h2>💬 Chat</h2>
+      
+      {/* Backend Mode Status */}
+      {backendMode === 'ultra_minimal' && (
+        <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="flex items-center space-x-2">
+            <span className="text-lg">🪶</span>
+            <div>
+              <div className="text-sm font-medium text-blue-800">Ultra-Minimal Mode Active</div>
+              <div className="text-xs text-blue-600">Lightweight AI assistant with built-in knowledge base. Full features available with upgraded backend.</div>
+            </div>
+          </div>
+        </div>
+      )}
+      
       <div className="row mt">
         <div className="col">
           <label className="label">Category Filter</label>

@@ -8,6 +8,8 @@ interface InitializationState {
   isInitializing: boolean
   initError: string | null
   backendStatus: 'unknown' | 'healthy' | 'unhealthy'
+  backendMode: 'full' | 'minimal' | 'ultra_minimal' | 'unknown'
+  ragStatus: string | null
   retryInitialization: () => void
 }
 
@@ -30,6 +32,8 @@ export default function InitializationProvider({ children }: InitializationProvi
   const [isInitializing, setIsInitializing] = useState(true)
   const [initError, setInitError] = useState<string | null>(null)
   const [backendStatus, setBackendStatus] = useState<'unknown' | 'healthy' | 'unhealthy'>('unknown')
+  const [backendMode, setBackendMode] = useState<'full' | 'minimal' | 'ultra_minimal' | 'unknown'>('unknown')
+  const [ragStatus, setRagStatus] = useState<string | null>(null)
 
   const initializeSystem = async () => {
     setIsInitializing(true)
@@ -41,25 +45,48 @@ export default function InitializationProvider({ children }: InitializationProvi
       const healthData = await health()
       setBackendStatus('healthy')
       
-      // Check if already initialized
-      if (healthData.rag_initialized) {
-        console.log('✅ RAG already initialized')
+      // Detect backend mode from health response
+      if (healthData.mode === 'lightweight' || healthData.memory_efficient) {
+        setBackendMode('ultra_minimal')
+        console.log('🪶 Ultra-minimal backend detected')
+        
+        // Ultra-minimal mode is always ready
         setIsInitialized(true)
+        setRagStatus('ready')
         setIsInitializing(false)
         return
+      } else if (healthData.rag_status) {
+        // New minimal backend with rag_status
+        setBackendMode('minimal')
+        setRagStatus(healthData.rag_status)
+        
+        if (healthData.rag_initialized || healthData.rag_status === 'ready') {
+          console.log('✅ RAG already initialized')
+          setIsInitialized(true)
+          setIsInitializing(false)
+          return
+        }
+      } else {
+        // Legacy full backend
+        setBackendMode('full')
+        if (healthData.rag_initialized) {
+          console.log('✅ RAG already initialized')
+          setIsInitialized(true)
+          setIsInitializing(false)
+          return
+        }
       }
       
-      // Initialize RAG system
+      // Initialize RAG system if needed
       console.log('🚀 Initializing RAG system...')
-      await initializeRAG()
+      const initData = await initializeRAG()
       
-      // Verify initialization
-      const healthAfterInit = await health()
-      if (healthAfterInit.rag_initialized) {
+      if (initData.status === 'ready' || initData.status === 'success') {
         console.log('✅ RAG system initialized successfully')
         setIsInitialized(true)
+        setRagStatus(initData.status)
       } else {
-        throw new Error('RAG system failed to initialize properly')
+        throw new Error(initData.message || 'RAG system failed to initialize properly')
       }
       
     } catch (error: any) {
@@ -70,6 +97,8 @@ export default function InitializationProvider({ children }: InitializationProvi
       let errorMessage = 'Unknown initialization error'
       if (error.response?.data?.detail) {
         errorMessage = error.response.data.detail
+      } else if (error.response?.data?.message) {
+        errorMessage = error.response.data.message
       } else if (error.message) {
         errorMessage = error.message
       }
@@ -93,6 +122,8 @@ export default function InitializationProvider({ children }: InitializationProvi
     isInitializing,
     initError,
     backendStatus,
+    backendMode,
+    ragStatus,
     retryInitialization
   }
 

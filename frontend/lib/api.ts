@@ -49,6 +49,8 @@ api.interceptors.response.use(
 
 export const health = async () => (await api.get('/health')).data
 
+export const getStatus = async () => (await api.get('/status')).data
+
 export const initializeRAG = async () => {
   const response = await api.get('/init', { timeout: 120000 }) // 2 minutes for initialization
   return response.data
